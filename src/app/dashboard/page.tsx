@@ -15,6 +15,7 @@ export default async function DashboardPage() {
 
   const companyName = (data?.companyName as string | undefined) || null;
   const status = (data?.status as string | undefined) || null;
+  const fundingNeeded = (data?.fundingNeeded as boolean | undefined) || false;
 
   return (
     <main className="rma-container py-14 sm:py-18">
@@ -55,15 +56,28 @@ export default async function DashboardPage() {
               </Link>
             </div>
 
-            <p className="mt-4 text-sm leading-6 text-black/60">
-              RMA will review your profile for completeness and verification. You’ll be contacted if
-              additional information is required or when opportunities match your sector and capacity.
+            <p className="mt-4 text-sm leading-6 rma-muted">
+              Your registration supports participation in RMA’s mining supplier pipeline, local-content supplier visibility,
+              verification and readiness screening, and supplier development support. Where eligible, RMA can also support
+              finance-readiness assessment and preparation for confirmed mining work, plus contract execution support and delivery monitoring.
             </p>
+
+            <div className="mt-4 rounded-2xl border border-black/10 bg-white px-4 py-3 text-xs leading-5 rma-muted">
+              <span className="font-semibold text-[var(--rma-ink)]">Disclaimer:</span>{" "}
+              Funding support is not guaranteed and remains subject to eligibility, documentation, finance partner assessment,
+              and confirmed commercial opportunity.
+              {fundingNeeded ? (
+                <>
+                  {" "}
+                  You indicated that funding may be needed—ensure the Finance Readiness section is complete in your KYC.
+                </>
+              ) : null}
+            </div>
           </div>
 
           <div className="rma-card p-6">
             <p className="text-sm font-semibold text-[var(--rma-ink)]">Admin</p>
-            <p className="mt-2 text-sm leading-6 text-black/60">
+            <p className="mt-2 text-sm leading-6 rma-muted">
               If you are an RMA admin, you can access the admin dashboard.
             </p>
             <div className="mt-4">

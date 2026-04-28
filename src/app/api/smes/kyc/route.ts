@@ -1,4 +1,4 @@
-import { KycSchema } from "@/lib/kyc";
+import { KycSchemaWithFinanceRules } from "@/lib/kyc";
 import { getAdminDb } from "@/lib/firebaseAdmin";
 import { requireUser } from "@/lib/authServer";
 
@@ -6,7 +6,7 @@ export async function POST(request: Request) {
   try {
     const user = await requireUser();
     const body = await request.json();
-    const parsed = KycSchema.safeParse(body);
+    const parsed = KycSchemaWithFinanceRules.safeParse(body);
     if (!parsed.success) {
       return Response.json(
         { ok: false, error: "Invalid form data.", issues: parsed.error.issues },

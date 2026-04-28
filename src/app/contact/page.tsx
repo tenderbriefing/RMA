@@ -60,6 +60,24 @@ export default function ContactPage() {
             </Link>
           </div>
         </div>
+
+        <div className="mt-6 rma-card p-6">
+          <p className="text-sm font-semibold text-[var(--rma-ink)]">
+            Finance partners (banks & DFIs)
+          </p>
+          <p className="mt-2 text-sm leading-6 rma-muted">
+            If you finance mining-sector SMEs, RMA can support a screened pipeline with verified demand, structured funding needs,
+            and delivery monitoring—subject to your assessment and eligibility criteria.
+          </p>
+          <p className="mt-3 text-xs leading-5 rma-muted">
+            RMA does not approve funding and does not guarantee funding outcomes.
+          </p>
+          <div className="mt-4">
+            <Link href="mailto:nachilala@rma.africa" className="rma-btn rma-btn-secondary">
+              Contact for finance partnerships
+            </Link>
+          </div>
+        </div>
       </Section>
     </main>
   );

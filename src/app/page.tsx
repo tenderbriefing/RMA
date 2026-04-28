@@ -128,6 +128,61 @@ export default function Home() {
         </div>
       </Section>
 
+      <Section
+        eyebrow="New service offering"
+        title="Contract Finance & Execution Support"
+        description="Many Zambian SMEs are capable of supplying the mining sector but lack the working capital required to execute confirmed opportunities. RMA helps SMEs prepare for purchase order finance, invoice finance, working capital, asset finance, trade finance, and contract execution funding by packaging credible funding requests, linking SMEs to finance partners, and supporting delivery monitoring."
+      >
+        <div className="grid gap-4 sm:grid-cols-2">
+          {[
+            {
+              title: "Purchase Order Finance",
+              body: "Support for SMEs that have a valid purchase order but need capital to procure goods, mobilise resources, or deliver against the order.",
+            },
+            {
+              title: "Invoice Finance",
+              body: "Support for SMEs that have delivered goods or services and are waiting for payment from mining clients.",
+            },
+            {
+              title: "Working Capital",
+              body: "Support for operating cash requirements linked to confirmed mining-sector supply opportunities.",
+            },
+            {
+              title: "Asset Finance",
+              body: "Support for SMEs that require equipment, tools, vehicles, or machinery to execute mining-sector contracts.",
+            },
+            {
+              title: "Contract Finance",
+              body: "Support for SMEs that need structured finance preparation linked to confirmed supply contracts or service agreements.",
+            },
+            {
+              title: "Trade Finance",
+              body: "Support for SMEs that need to source, import, or procure goods required for mining-sector delivery.",
+            },
+          ].map((c) => (
+            <div key={c.title} className="rma-card rma-card-interactive p-6">
+              <p className="text-base font-semibold text-[var(--rma-ink)]">
+                {c.title}
+              </p>
+              <p className="mt-2 text-sm leading-6 rma-muted">{c.body}</p>
+            </div>
+          ))}
+          <div className="sm:col-span-2">
+            <div className="mt-2 rounded-3xl border border-black/10 bg-white p-6">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-sm leading-6 rma-muted">
+                  Funding readiness support does not guarantee funding approval and remains subject to eligibility,
+                  documentation, commercial viability, and finance partner assessment.
+                </p>
+                <Link href="/register" className="rma-btn rma-btn-primary">
+                  Register Your SME for Funding Readiness
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       <div className="rma-container">
         <div className="rounded-3xl border border-black/10 bg-[linear-gradient(135deg,var(--rma-green),var(--rma-green-2))] px-6 py-10 text-white sm:px-10">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">

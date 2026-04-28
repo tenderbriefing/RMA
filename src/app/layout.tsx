@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "RMA Zambia | Mining Local Content & SME Supplier Development",
+    default: "RMA Zambia | Mining Local Content, Supplier Finance & SME Development",
     template: "%s · Resilient Markets Africa",
   },
   description:
-    "Resilient Markets Africa supports Zambia’s mining sector with local-content implementation, SME supplier development, KYC verification, finance-readiness, and compliance reporting.",
+    "Resilient Markets Africa supports Zambia’s mining sector with local-content implementation, SME supplier development, KYC verification, finance-readiness, contract execution support, and compliance reporting.",
   metadataBase: new URL("https://www.rma.africa"),
 };
 

@@ -49,6 +49,12 @@ export function KycFormClient({ initial }: { initial: Partial<KycInput> }) {
       initial.numberOfEmployees !== undefined ? String(initial.numberOfEmployees) : "",
     bankName: initial.bankName ?? "",
     consentToStoreData: initial.consentToStoreData ?? false,
+
+    fundingNeeded: initial.fundingNeeded ?? false,
+    fundingType: initial.fundingType ?? "",
+    estimatedFundingAmount: initial.estimatedFundingAmount ?? "",
+    hasPurchaseOrderOrContract: initial.hasPurchaseOrderOrContract ?? false,
+    fundingPurpose: initial.fundingPurpose ?? "",
   });
 
   const [status, setStatus] = useState<
@@ -59,6 +65,12 @@ export function KycFormClient({ initial }: { initial: Partial<KycInput> }) {
   >({ state: "idle" });
 
   const canSubmit = useMemo(() => {
+    const financeOk =
+      !form.fundingNeeded ||
+      (form.fundingType.trim().length >= 2 &&
+        form.estimatedFundingAmount.trim().length >= 1 &&
+        form.fundingPurpose.trim().length >= 5);
+
     return (
       form.companyName.trim().length >= 2 &&
       form.pacraRegistrationNumber.trim().length >= 2 &&
@@ -81,7 +93,8 @@ export function KycFormClient({ initial }: { initial: Partial<KycInput> }) {
       form.ownershipPercentage.trim().length >= 1 &&
       form.numberOfEmployees.trim().length >= 1 &&
       form.bankName.trim().length >= 2 &&
-      form.consentToStoreData === true
+      form.consentToStoreData === true &&
+      financeOk
     );
   }, [form]);
 
@@ -95,6 +108,8 @@ export function KycFormClient({ initial }: { initial: Partial<KycInput> }) {
         ownershipPercentage: Number(form.ownershipPercentage),
         numberOfEmployees: Number(form.numberOfEmployees),
         consentToStoreData: true,
+        fundingNeeded: Boolean(form.fundingNeeded),
+        hasPurchaseOrderOrContract: Boolean(form.hasPurchaseOrderOrContract),
       };
 
       const res = await fetch("/api/smes/kyc", {
@@ -363,6 +378,84 @@ export function KycFormClient({ initial }: { initial: Partial<KycInput> }) {
             value={form.bankName}
             onChange={(e) => setForm((f) => ({ ...f, bankName: e.target.value }))}
             required
+          />
+        </Field>
+      </div>
+
+      <div className="grid gap-2">
+        <p className="text-sm font-semibold text-[var(--rma-ink)]">Finance Readiness</p>
+        <p className="text-sm leading-6 rma-muted">
+          Complete this section if your SME may need funding to execute mining-sector work. Funding support is not guaranteed and
+          remains subject to eligibility, documentation, finance partner assessment, and confirmed commercial opportunity.
+        </p>
+
+        <label className="flex items-start gap-3 rounded-2xl border border-black/10 bg-white p-4">
+          <input
+            type="checkbox"
+            className="mt-1 h-4 w-4 rounded border-black/20"
+            checked={form.fundingNeeded}
+            onChange={(e) => setForm((f) => ({ ...f, fundingNeeded: e.target.checked }))}
+          />
+          <span className="text-sm leading-6 rma-muted">
+            My business may need funding to execute confirmed mining-sector work.
+          </span>
+        </label>
+
+        <div className="grid gap-6 sm:grid-cols-2">
+          <Field label="Funding type" hint="Select one (required if funding needed)">
+            <select
+              className={inputClass}
+              value={form.fundingType}
+              onChange={(e) => setForm((f) => ({ ...f, fundingType: e.target.value }))}
+              disabled={!form.fundingNeeded}
+              required={form.fundingNeeded}
+            >
+              <option value="">Select</option>
+              <option>Purchase Order Finance</option>
+              <option>Invoice Finance</option>
+              <option>Working Capital</option>
+              <option>Asset Finance</option>
+              <option>Contract Finance</option>
+              <option>Trade Finance</option>
+              <option>Not sure yet</option>
+            </select>
+          </Field>
+
+          <Field label="Estimated funding amount" hint="ZMW (required if funding needed)">
+            <input
+              className={inputClass}
+              value={form.estimatedFundingAmount}
+              onChange={(e) => setForm((f) => ({ ...f, estimatedFundingAmount: e.target.value }))}
+              disabled={!form.fundingNeeded}
+              required={form.fundingNeeded}
+              placeholder="e.g. 250,000"
+            />
+          </Field>
+        </div>
+
+        <label className="flex items-start gap-3 rounded-2xl border border-black/10 bg-white p-4">
+          <input
+            type="checkbox"
+            className="mt-1 h-4 w-4 rounded border-black/20"
+            checked={form.hasPurchaseOrderOrContract}
+            onChange={(e) =>
+              setForm((f) => ({ ...f, hasPurchaseOrderOrContract: e.target.checked }))
+            }
+            disabled={!form.fundingNeeded}
+          />
+          <span className="text-sm leading-6 rma-muted">
+            I have a purchase order or contract (or confirmed opportunity) that may support a funding request.
+          </span>
+        </label>
+
+        <Field label="Funding purpose" hint="Required if funding needed">
+          <textarea
+            className={`${inputClass} min-h-24 resize-y`}
+            value={form.fundingPurpose}
+            onChange={(e) => setForm((f) => ({ ...f, fundingPurpose: e.target.value }))}
+            disabled={!form.fundingNeeded}
+            required={form.fundingNeeded}
+            placeholder="What will the funding be used for (procurement, mobilisation, delivery, equipment, etc.)?"
           />
         </Field>
       </div>

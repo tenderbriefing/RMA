@@ -34,6 +34,7 @@ export function AdminClient() {
   const [district, setDistrict] = useState("");
   const [sector, setSector] = useState("");
   const [status, setStatus] = useState("");
+  const [fundingNeeded, setFundingNeeded] = useState<"" | "yes" | "no">("");
 
   const queryString = useMemo(() => {
     const p = new URLSearchParams();
@@ -42,8 +43,9 @@ export function AdminClient() {
     if (district) p.set("district", district);
     if (sector) p.set("sector", sector);
     if (status) p.set("status", status);
+    if (fundingNeeded) p.set("fundingNeeded", fundingNeeded);
     return p.toString();
-  }, [q, province, district, sector, status]);
+  }, [q, province, district, sector, status, fundingNeeded]);
 
   async function refresh() {
     setLoading(true);
@@ -135,7 +137,7 @@ export function AdminClient() {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
             <Input label="Company name" value={q} onChange={setQ} />
             <Input label="Province" value={province} onChange={setProvince} />
             <Input label="District" value={district} onChange={setDistrict} />
@@ -156,6 +158,21 @@ export function AdminClient() {
                     {s}
                   </option>
                 ))}
+              </select>
+            </label>
+
+            <label className="block">
+              <span className="text-xs font-semibold uppercase tracking-wider text-black/50">
+                Funding needed
+              </span>
+              <select
+                className="mt-2 w-full rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/30"
+                value={fundingNeeded}
+                onChange={(e) => setFundingNeeded(e.target.value as "" | "yes" | "no")}
+              >
+                <option value="">All</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
               </select>
             </label>
           </div>
@@ -187,13 +204,14 @@ export function AdminClient() {
 
       <div className="rma-card overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="min-w-[900px] w-full text-left text-sm">
+          <table className="min-w-[1100px] w-full text-left text-sm">
             <thead className="bg-black/[.03] text-black/70">
               <tr>
                 <th className="px-4 py-3 font-semibold">Company</th>
                 <th className="px-4 py-3 font-semibold">Province</th>
                 <th className="px-4 py-3 font-semibold">District</th>
                 <th className="px-4 py-3 font-semibold">Sector</th>
+                <th className="px-4 py-3 font-semibold">Funding</th>
                 <th className="px-4 py-3 font-semibold">Status</th>
                 <th className="px-4 py-3 font-semibold">Updated</th>
               </tr>
@@ -212,6 +230,17 @@ export function AdminClient() {
                   <td className="px-4 py-3 text-black/70">{String(r.province ?? "—")}</td>
                   <td className="px-4 py-3 text-black/70">{String(r.district ?? "—")}</td>
                   <td className="px-4 py-3 text-black/70">{String(r.sector ?? "—")}</td>
+                  <td className="px-4 py-3 text-black/70">
+                    <div className="font-medium">
+                      {r.fundingNeeded ? "Yes" : "No"}
+                    </div>
+                    {r.fundingNeeded ? (
+                      <div className="text-xs text-black/50">
+                        {String(r.fundingType ?? "—")}
+                        {r.estimatedFundingAmount ? ` · ${String(r.estimatedFundingAmount)}` : ""}
+                      </div>
+                    ) : null}
+                  </td>
                   <td className="px-4 py-3">
                     <select
                       className="w-full rounded-lg border border-black/10 bg-white px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/30"
@@ -233,7 +262,7 @@ export function AdminClient() {
 
               {!rows.length && !loading ? (
                 <tr>
-                  <td className="px-4 py-8 rma-muted" colSpan={6}>
+                  <td className="px-4 py-8 rma-muted" colSpan={7}>
                     No records match your filters.
                   </td>
                 </tr>

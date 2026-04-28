@@ -7,6 +7,7 @@ export type SmeFilters = {
   district?: string;
   sector?: string;
   status?: string;
+  fundingNeeded?: "yes" | "no";
 };
 
 export async function listSmes(filters: SmeFilters) {
@@ -24,6 +25,8 @@ export async function listSmes(filters: SmeFilters) {
   if (filters.province) query = query.where("province", "==", filters.province);
   if (filters.district) query = query.where("district", "==", filters.district);
   if (filters.sector) query = query.where("sector", "==", filters.sector);
+  if (filters.fundingNeeded === "yes") query = query.where("fundingNeeded", "==", true);
+  if (filters.fundingNeeded === "no") query = query.where("fundingNeeded", "==", false);
 
   const snap = await query.get();
   let rows: Array<Record<string, unknown> & { id: string }> = snap.docs.map((d) => ({

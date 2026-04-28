@@ -55,6 +55,38 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+
+          <div className="rma-card p-6">
+            <p className="text-sm font-semibold text-[var(--rma-ink)]">
+              Mining SME Contract Finance & Execution Support
+            </p>
+            <p className="mt-2 text-sm leading-6 rma-muted">
+              RMA does not only help SMEs become visible to mining companies; it helps them become capable of delivering.
+              Through finance-readiness support and contract execution monitoring, RMA strengthens the bridge between mining
+              procurement, SME suppliers, and finance partners.
+            </p>
+            <div className="mt-4 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-2xl border border-black/10 bg-white p-4">
+                <p className="text-sm font-semibold text-[var(--rma-ink)]">For mining houses</p>
+                <p className="mt-2 text-sm leading-6 rma-muted">
+                  This reduces supplier failure risk and supports more credible local procurement outcomes.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-black/10 bg-white p-4">
+                <p className="text-sm font-semibold text-[var(--rma-ink)]">For funders</p>
+                <p className="mt-2 text-sm leading-6 rma-muted">
+                  RMA creates a screened pipeline of mining-sector SMEs with verified demand, structured funding needs, and
+                  monitored execution support.
+                </p>
+              </div>
+              <div className="rounded-2xl border border-black/10 bg-white p-4">
+                <p className="text-sm font-semibold text-[var(--rma-ink)]">For SMEs</p>
+                <p className="mt-2 text-sm leading-6 rma-muted">
+                  Funding readiness and referral preparation are provided as implementation support and do not guarantee approval.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </Section>
     </main>

@@ -29,6 +29,11 @@ const columns = [
   "status",
   "createdAt",
   "updatedAt",
+  "fundingNeeded",
+  "fundingType",
+  "estimatedFundingAmount",
+  "hasPurchaseOrderOrContract",
+  "fundingPurpose",
 ] as const;
 
 export async function GET(request: Request) {
@@ -41,6 +46,7 @@ export async function GET(request: Request) {
       district: url.searchParams.get("district") || undefined,
       sector: url.searchParams.get("sector") || undefined,
       status: url.searchParams.get("status") || undefined,
+      fundingNeeded: (url.searchParams.get("fundingNeeded") as "yes" | "no" | null) || undefined,
     };
 
     const smes = await listSmes(filters);
