@@ -12,7 +12,7 @@ export default function Home() {
           <div className="absolute top-24 left-[-160px] h-[520px] w-[520px] rounded-full bg-[color:var(--rma-orange)]/8 blur-3xl" />
         </div>
 
-        <div className="rma-container relative py-16 sm:py-20">
+        <div className="rma-container-wide relative py-14 sm:py-18">
           <div className="grid items-center gap-10 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <p className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-4 py-2 text-xs font-semibold text-black/70 backdrop-blur">
@@ -53,6 +53,41 @@ export default function Home() {
                   </span>
                 ))}
               </div>
+
+              <div className="mt-10 grid gap-4 sm:grid-cols-3">
+                {[
+                  {
+                    title: "For Mining Companies",
+                    body: "Operationalise local-content direction with a verified supplier pipeline, training delivery, and reporting outputs.",
+                    href: "/contact",
+                    cta: "Partner with RMA",
+                  },
+                  {
+                    title: "For SMEs",
+                    body: "Register, complete KYC, and access supplier development and funding readiness support (where eligible).",
+                    href: "/register",
+                    cta: "Register your SME",
+                  },
+                  {
+                    title: "For Finance Partners",
+                    body: "Access a screened pipeline with structured funding needs and contract execution monitoring support.",
+                    href: "/contact",
+                    cta: "Finance partnerships",
+                  },
+                ].map((x) => (
+                  <div key={x.title} className="rma-card rma-card-interactive p-5">
+                    <p className="text-sm font-semibold text-[var(--rma-ink)]">
+                      {x.title}
+                    </p>
+                    <p className="mt-2 text-sm leading-6 rma-muted">{x.body}</p>
+                    <div className="mt-4">
+                      <Link href={x.href} className="text-sm font-semibold text-[color:var(--rma-blue)] hover:underline">
+                        {x.cta} →
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="lg:col-span-5">
@@ -83,12 +118,33 @@ export default function Home() {
                 <p className="text-sm font-semibold text-[var(--rma-ink)]">
                   {item.k}
                 </p>
-                <p className="mt-2 text-sm leading-6 text-black/60">
+                <p className="mt-2 text-sm leading-6 rma-muted">
                   {item.v}
                 </p>
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      <div className="rma-container-wide">
+        <div className="grid gap-4 rounded-3xl border border-black/10 bg-white p-6 sm:grid-cols-4">
+          {[
+            { k: "1", t: "Assess", d: "Readiness screening aligned to mining procurement expectations." },
+            { k: "2", t: "Verify", d: "KYC + profiling to build a trusted supplier pipeline." },
+            { k: "3", t: "Develop", d: "Supplier development, training, and contract execution support." },
+            { k: "4", t: "Monitor & report", d: "Dashboards and exports designed to support reporting outcomes." },
+          ].map((s) => (
+            <div key={s.k} className="rounded-2xl border border-black/10 bg-white p-5">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-black/[.04] text-sm font-semibold text-black/70">
+                  {s.k}
+                </span>
+                <p className="text-sm font-semibold text-[var(--rma-ink)]">{s.t}</p>
+              </div>
+              <p className="mt-2 text-sm leading-6 rma-muted">{s.d}</p>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -120,7 +176,7 @@ export default function Home() {
               <p className="text-base font-semibold text-[var(--rma-ink)]">
                 {card.title}
               </p>
-              <p className="mt-2 text-sm leading-6 text-black/60">
+              <p className="mt-2 text-sm leading-6 rma-muted">
                 {card.body}
               </p>
             </div>

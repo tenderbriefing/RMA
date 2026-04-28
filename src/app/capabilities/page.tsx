@@ -1,4 +1,5 @@
 import { Section } from "@/components/Section";
+import { AnchorNav } from "@/components/AnchorNav";
 
 export const metadata = {
   title: "Capabilities",
@@ -70,20 +71,53 @@ export default function CapabilitiesPage() {
         title="Mining local-content + supplier development delivery, end-to-end."
         description="RMA supports mining companies, EPCs, and contractors with implementation support that strengthens local procurement outcomes, builds verified supplier pipelines, and improves SME contract and finance readiness."
       >
-        <div className="grid gap-4 sm:grid-cols-2">
-          {capabilities.map((c) => (
-            <div key={c.n} className="rma-card p-6">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-black/[.04] text-sm font-semibold text-black/70">
-                  {c.n}
-                </span>
-                <p className="text-base font-semibold text-[var(--rma-ink)]">
-                  {c.title}
-                </p>
+        <div className="grid gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <AnchorNav
+              items={[
+                { href: "#capability-model", label: "Capability model" },
+                { href: "#capability-list", label: "Core capabilities" },
+                { href: "#funding-execution", label: "Funding & execution support" },
+              ]}
+            />
+          </div>
+
+          <div className="space-y-8 lg:col-span-8">
+            <section id="capability-model" className="rma-card p-6">
+              <p className="text-sm font-semibold text-[var(--rma-ink)]">
+                How we deliver
+              </p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-4">
+                {[
+                  { k: "Assess", d: "Readiness screening aligned to buyer expectations." },
+                  { k: "Verify", d: "KYC + profiling to build a trusted supplier pipeline." },
+                  { k: "Develop", d: "Training, mentorship, and execution planning support." },
+                  { k: "Monitor", d: "Delivery monitoring and reporting outputs." },
+                ].map((x) => (
+                  <div key={x.k} className="rounded-2xl border border-black/10 bg-white p-4">
+                    <p className="text-sm font-semibold text-[var(--rma-ink)]">{x.k}</p>
+                    <p className="mt-2 text-sm leading-6 rma-muted">{x.d}</p>
+                  </div>
+                ))}
               </div>
-              <p className="mt-3 text-sm leading-6 rma-muted">{c.body}</p>
-            </div>
-          ))}
+            </section>
+
+            <section id="capability-list" className="grid gap-4 sm:grid-cols-2">
+              {capabilities.map((c) => (
+                <div key={c.n} className="rma-card p-6">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-black/[.04] text-sm font-semibold text-black/70">
+                      {c.n}
+                    </span>
+                    <p className="text-base font-semibold text-[var(--rma-ink)]">
+                      {c.title}
+                    </p>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 rma-muted">{c.body}</p>
+                </div>
+              ))}
+            </section>
+          </div>
         </div>
       </Section>
 
@@ -92,7 +126,7 @@ export default function CapabilitiesPage() {
         title="Funding Readiness & Contract Execution Support"
         description="RMA helps reduce supplier failure risk by ensuring SMEs are not only visible and trained, but also better prepared to access the working capital required to execute awarded work. Funding remains subject to eligibility, documentation, commercial viability, and finance partner assessment."
       >
-        <div className="rma-card p-6">
+        <div id="funding-execution" className="rma-card p-6">
           <div className="grid gap-3 sm:grid-cols-2">
             {[
               "Funding readiness assessment",
