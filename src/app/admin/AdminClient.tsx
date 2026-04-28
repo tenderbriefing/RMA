@@ -9,7 +9,7 @@ const statuses = ["pending", "verified", "rejected", "needs_review"] as const;
 function Input({ label, value, onChange }: { label: string; value: string; onChange: (v: string) => void }) {
   return (
     <label className="block">
-      <span className="text-xs font-semibold uppercase tracking-wider text-black/50">
+      <span className="text-xs font-semibold uppercase tracking-wider rma-muted">
         {label}
       </span>
       <input
@@ -83,14 +83,14 @@ export function AdminClient() {
     <div className="grid gap-4">
       <div className="rma-card p-6">
         <p className="text-sm font-semibold text-[var(--rma-ink)]">Admin access</p>
-        <p className="mt-2 text-sm leading-6 text-black/60">
+        <p className="mt-2 text-sm leading-6 rma-muted">
           Set a user’s role in Firestore `users/{`{uid}`}`. Only admins can do this.
         </p>
 
         <div className="mt-5 grid gap-4 sm:grid-cols-3 sm:items-end">
           <Input label="User UID" value={roleUserId} onChange={setRoleUserId} />
           <label className="block">
-            <span className="text-xs font-semibold uppercase tracking-wider text-black/50">
+            <span className="text-xs font-semibold uppercase tracking-wider rma-muted">
               Role
             </span>
             <select
@@ -130,8 +130,8 @@ export function AdminClient() {
         <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">
             <p className="text-sm font-semibold text-[var(--rma-ink)]">Filters</p>
-            <p className="text-sm text-black/60">
-              Search and filter SME records. CSV export uses the same filters.
+            <p className="text-sm rma-muted">
+              Search and filter mining supplier SMEs. CSV export uses the same filters.
             </p>
           </div>
 
@@ -161,7 +161,7 @@ export function AdminClient() {
           </div>
 
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <div className="text-sm text-black/60">
+            <div className="text-sm rma-muted">
               {loading ? "Loading..." : `${rows.length} record(s)`}
             </div>
             <div className="flex gap-2">
@@ -169,10 +169,10 @@ export function AdminClient() {
                 className="rma-btn rma-btn-secondary"
                 href={`/api/admin/smes/export?${queryString}`}
               >
-                Download filtered CSV
+                Download filtered SME CSV
               </a>
               <a className="rma-btn rma-btn-secondary" href="/api/admin/smes/export">
-                Download full CSV
+                Download SME Database as CSV
               </a>
             </div>
           </div>
@@ -233,7 +233,7 @@ export function AdminClient() {
 
               {!rows.length && !loading ? (
                 <tr>
-                  <td className="px-4 py-8 text-black/60" colSpan={6}>
+                  <td className="px-4 py-8 rma-muted" colSpan={6}>
                     No records match your filters.
                   </td>
                 </tr>

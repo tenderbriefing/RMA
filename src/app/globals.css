@@ -9,8 +9,13 @@
   --rma-orange: #f0742b;
   --rma-blue: #253a87;
   --rma-ink: #0a1223;
-  --rma-muted: #5b6475;
+  --rma-muted: #4b5565;
   --rma-surface: #ffffff;
+  /* Zambia flag accents */
+  --zm-green: #198a00;
+  --zm-red: #de2010;
+  --zm-black: #111111;
+  --zm-orange: #ef7d00;
 }
 
 @theme inline {
@@ -20,18 +25,22 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, -apple-system, Segoe UI, Roboto,
     Arial, Helvetica, sans-serif;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .rma-container {
@@ -40,6 +49,14 @@ body {
 
 .rma-card {
   @apply rounded-2xl border border-black/10 bg-white shadow-sm;
+}
+
+.rma-card-interactive {
+  @apply transition will-change-transform hover:-translate-y-0.5 hover:shadow-md;
+}
+
+.rma-muted {
+  color: var(--rma-muted);
 }
 
 .rma-btn {
@@ -53,4 +70,18 @@ body {
 
 .rma-btn-secondary {
   @apply border border-black/10 bg-white text-black hover:bg-black/[.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/30 focus-visible:ring-offset-2;
+}
+
+.zambia-stripe {
+  background: linear-gradient(
+    90deg,
+    var(--zm-green),
+    var(--zm-green) 25%,
+    var(--zm-red) 25%,
+    var(--zm-red) 50%,
+    var(--zm-black) 50%,
+    var(--zm-black) 75%,
+    var(--zm-orange) 75%,
+    var(--zm-orange)
+  );
 }

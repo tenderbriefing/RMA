@@ -17,10 +17,10 @@ export default async function AdminPage() {
               Admin
             </p>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-5xl">
-              SME KYC Admin Dashboard
+              Mining SME Supplier Database
             </h1>
-            <p className="mt-3 text-base leading-7 text-black/60">
-              Review SME profiles, update status, and export CSV.
+            <p className="mt-3 text-base leading-7 rma-muted">
+              Review mining supplier SMEs, update verification status, and export CSV.
             </p>
           </div>
         </div>

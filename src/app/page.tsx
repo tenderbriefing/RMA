@@ -1,60 +1,82 @@
 import Link from "next/link";
 import { Section } from "@/components/Section";
+import { HeroESDVisual } from "@/components/HeroESDVisual";
 
 export default function Home() {
   return (
     <main>
       <div className="relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute -top-24 left-1/2 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-emerald-500/15 blur-3xl" />
-          <div className="absolute -bottom-40 right-[-120px] h-[520px] w-[520px] rounded-full bg-cyan-500/10 blur-3xl" />
+          <div className="absolute -top-28 left-1/2 h-[560px] w-[980px] -translate-x-1/2 rounded-full bg-[color:var(--rma-green)]/12 blur-3xl" />
+          <div className="absolute -bottom-44 right-[-160px] h-[560px] w-[560px] rounded-full bg-[color:var(--rma-blue)]/10 blur-3xl" />
+          <div className="absolute top-24 left-[-160px] h-[520px] w-[520px] rounded-full bg-[color:var(--rma-orange)]/8 blur-3xl" />
         </div>
 
         <div className="rma-container relative py-16 sm:py-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs font-semibold text-black/70 backdrop-blur">
-              Inclusive, high-performing, investment-ready supply chains
-            </p>
+          <div className="grid items-center gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <p className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-4 py-2 text-xs font-semibold text-black/70 backdrop-blur">
+                Zambia mining local content • supplier development • finance readiness
+              </p>
 
-            <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-6xl">
-              Build local supplier competitiveness. Unlock corporate and
-              investor-ready value chains.
-            </h1>
+              <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-6xl">
+                Mining Local Content. Supplier Development. Finance-Ready SMEs.
+              </h1>
 
-            <p className="mt-6 text-base leading-7 text-black/60 sm:text-lg">
-              Resilient Markets Africa (RMA) is a specialist market development
-              and market preparation organisation registered in Zambia. We help
-              SMEs meet regulatory, technical, and reporting standards required
-              by national and multinational buyers.
-            </p>
+              <p className="mt-6 text-base leading-7 text-[color:var(--rma-muted)] sm:text-lg">
+                RMA helps Zambia’s mining sector build verified, contract-ready SME supplier pipelines
+                aligned with the country’s mining local-content direction—supporting procurement
+                transformation, supplier development outcomes, and inclusive growth.
+              </p>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href="/register" className="rma-btn rma-btn-primary">
-                Create SME account
-              </Link>
-              <Link href="/about" className="rma-btn rma-btn-secondary">
-                Learn about RMA
-              </Link>
+              <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row">
+                <Link href="/register" className="rma-btn rma-btn-primary">
+                  Register Your SME
+                </Link>
+                <Link href="/contact" className="rma-btn rma-btn-secondary">
+                  Partner With RMA
+                </Link>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2 text-xs font-semibold">
+                {[
+                  "Aligned with Statutory Instrument No. 68 of 2025",
+                  "Local-content supplier development",
+                  "KYC + verification workflow",
+                  "Finance-readiness with partners",
+                ].map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-black/10 bg-white/80 px-3 py-1 rma-muted"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <HeroESDVisual />
             </div>
           </div>
 
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                k: "Systemic impact",
-                v: "We reshape enabling environments, not just individual enterprises.",
+                k: "Local-content implementation support",
+                v: "Designed to help mining companies operationalise local-content procurement and supplier development outcomes.",
               },
               {
-                k: "Regulatory depth",
-                v: "Local content compliance support, including SI 26 of 2025.",
+                k: "Mining local-content direction",
+                v: "Aligned with SI 68 of 2025, the Geological and Minerals Development Act (2025), and related reforms.",
               },
               {
-                k: "End-to-end delivery",
-                v: "Programme design → implementation → mentorship → monitoring.",
+                k: "Verified SME supplier pipeline",
+                v: "KYC, profiling, and readiness support to build contract-ready suppliers for mining procurement.",
               },
               {
-                k: "Data-driven",
-                v: "Real-time monitoring and benchmarking for transparency.",
+                k: "Reporting & transparency",
+                v: "Dashboards and exports designed to support supplier development tracking and local-content reporting.",
               },
             ].map((item) => (
               <div key={item.k} className="rma-card p-5">
@@ -71,27 +93,27 @@ export default function Home() {
       </div>
 
       <Section
-        eyebrow="What we do"
-        title="Market development + market preparation, at scale."
-        description="RMA operates at the intersection of enterprise development, regulatory compliance, and sustainable finance—building the conditions for SMEs to participate in large-scale value chains."
+        eyebrow="Why Zambia’s mining sector needs RMA now"
+        title="Operationalise local content with a verified supplier pipeline."
+        description="Zambia’s mining local-content direction is increasing focus on local procurement, citizen participation, supplier development, skills transfer, access to finance, and technology transfer in the mining value chain. RMA supports implementation through practical tools, verification workflows, and measurable supplier development delivery."
       >
         <div className="grid gap-4 lg:grid-cols-2">
           {[
             {
-              title: "SME ecosystem building & transformation",
-              body: "Assessing and redesigning market and regulatory ecosystems to remove structural barriers and unlock competitiveness.",
+              title: "Local-content compliance support",
+              body: "Implementation support designed to help mining companies operationalise local-content procurement requirements and supplier development outcomes (not legal advice).",
             },
             {
-              title: "Compliance shared services",
-              body: "Help Desk + facilitated peer learning to navigate regulatory requirements efficiently and cost-effectively.",
+              title: "Verified SME supplier pipeline",
+              body: "KYC and profiling to build a pipeline of Zambian SMEs for mining goods and services categories.",
             },
             {
-              title: "Policy reform advocacy",
-              body: "Engagement with ministries, regulators, and industry bodies to strengthen enabling environments for SME growth.",
+              title: "Supplier development & training",
+              body: "Readiness assessment, coaching, and training to strengthen governance, HSE/site readiness, and contract execution capability.",
             },
             {
-              title: "Finance & market linkages",
-              body: "Connecting investment-ready SMEs to finance, off-take agreements, and buyer opportunities.",
+              title: "Finance-readiness with partners",
+              body: "Preparing SMEs for bank and DFI processes by improving documentation, governance, and performance signals—aligned with access-to-finance readiness.",
             },
           ].map((card) => (
             <div key={card.title} className="rma-card p-6">
@@ -111,19 +133,18 @@ export default function Home() {
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl">
               <h3 className="text-2xl font-semibold tracking-tight">
-                Get your business seen by opportunities.
+                Build your mining supplier pipeline.
               </h3>
               <p className="mt-2 text-sm leading-6 text-white/80">
-                Register to join the database of Zambian SMEs being prepared for
-                supplier opportunities with national and multinational
-                companies.
+                Mining houses, EPCs, and contractors: partner with RMA to develop a verified, contract-ready
+                pipeline of Zambian SMEs—designed to support local-content implementation and reporting outcomes.
               </p>
             </div>
             <Link
-              href="/register"
+              href="/contact"
               className="rma-btn bg-white text-[var(--rma-ink)] hover:bg-white/95"
             >
-              Start SME onboarding
+              Partner With RMA
             </Link>
           </div>
         </div>

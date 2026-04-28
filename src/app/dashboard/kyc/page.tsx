@@ -21,11 +21,11 @@ export default async function KycPage() {
             Zambia SME KYC
           </p>
           <h1 className="mt-5 text-3xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-5xl">
-            SME KYC Registration
+            Mining SME KYC Registration
           </h1>
-          <p className="mt-4 text-base leading-7 text-black/60">
-            Provide your company information for supplier development and opportunity matching. Required
-            fields are validated, and consent is mandatory.
+          <p className="mt-4 text-base leading-7 rma-muted">
+            Register your business to be considered for RMA’s mining supplier development pipeline.
+            Required fields are validated, and consent is mandatory.
           </p>
         </div>
 

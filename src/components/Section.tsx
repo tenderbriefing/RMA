@@ -12,12 +12,12 @@ export function Section({
   children?: ReactNode;
 }) {
   return (
-    <section className="py-14 sm:py-18">
+    <section className="py-16 sm:py-20">
       <div className="rma-container">
         <div className="grid gap-8 md:grid-cols-12">
           <div className="md:col-span-5">
             {eyebrow ? (
-              <p className="text-xs font-semibold uppercase tracking-wider text-black/50">
+              <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
                 {eyebrow}
               </p>
             ) : null}
@@ -25,7 +25,7 @@ export function Section({
               {title}
             </h2>
             {description ? (
-              <p className="mt-4 text-base leading-7 text-black/60">
+              <p className="mt-4 text-base leading-7 rma-muted">
                 {description}
               </p>
             ) : null}

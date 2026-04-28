@@ -9,10 +9,9 @@ export function Footer() {
             <p className="text-sm font-semibold text-[var(--rma-ink)]">
               Resilient Markets Africa (RMA)
             </p>
-            <p className="mt-3 max-w-xl text-sm leading-6 text-black/60">
-              A specialist market development and market preparation organisation
-              building inclusive, high-performing, investment-ready supply chains
-              across Africa’s most strategic sectors.
+            <p className="mt-3 max-w-xl text-sm leading-6 rma-muted">
+              A Zambia-focused mining local-content and supplier-development platform supporting verified,
+              contract-ready, finance-ready SME supplier pipelines for mining procurement and reporting outcomes.
             </p>
           </div>
 
@@ -32,7 +31,7 @@ export function Footer() {
                     href="/sectors"
                     className="text-black/70 hover:text-black"
                   >
-                    Sector focus
+                    Mining Categories
                   </Link>
                 </li>
                 <li>
@@ -40,15 +39,15 @@ export function Footer() {
                     href="/capabilities"
                     className="text-black/70 hover:text-black"
                   >
-                    Core capabilities
+                    Capabilities
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/sme-register"
+                    href="/register"
                     className="text-black/70 hover:text-black"
                   >
-                    SME registration
+                    SME Registration
                   </Link>
                 </li>
               </ul>
@@ -78,10 +77,12 @@ export function Footer() {
 
         <div className="mt-10 flex flex-col gap-3 border-t border-black/10 pt-6 text-xs text-black/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Resilient Markets Africa.</p>
-          <p className="max-w-xl">
-            We advocate for local suppliers and strengthen SME readiness to meet
-            corporate, regulatory, and investor requirements.
-          </p>
+          <div className="flex items-center gap-3">
+            <span className="h-2 w-10 rounded-full zambia-stripe" aria-hidden="true" />
+            <p className="max-w-xl">
+              Designed to support local-content implementation and supplier development outcomes in Zambia’s mining value chain.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

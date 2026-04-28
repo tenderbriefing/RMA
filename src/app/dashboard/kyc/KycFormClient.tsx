@@ -269,7 +269,7 @@ export function KycFormClient({ initial }: { initial: Partial<KycInput> }) {
       <div className="grid gap-2">
         <p className="text-sm font-semibold text-[var(--rma-ink)]">Sector & offerings</p>
         <div className="grid gap-6 sm:grid-cols-2">
-          <Field label="Sector">
+          <Field label="Mining supplier category" hint="e.g. PPE, transport, fabrication">
             <input
               className={inputClass}
               value={form.sector}
@@ -290,7 +290,10 @@ export function KycFormClient({ initial }: { initial: Partial<KycInput> }) {
             />
           </Field>
         </div>
-        <Field label="Products or services" hint="Brief description">
+        <Field
+          label="Products or services supplied to the mining value chain"
+          hint="Brief description"
+        >
           <textarea
             className={`${inputClass} min-h-28 resize-y`}
             value={form.productsOrServices}

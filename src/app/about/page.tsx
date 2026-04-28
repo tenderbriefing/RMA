@@ -9,48 +9,47 @@ export default function AboutPage() {
     <main>
       <Section
         eyebrow="About Resilient Markets Africa"
-        title="A specialist market development & market preparation organisation."
-        description="Registered in Zambia as a non-profit company limited by guarantee and regulated by PACRA, RMA builds inclusive, high-performing, investment-ready supply chains across Africa’s most strategic economic sectors."
+        title="Mining local-content and supplier development implementation partner."
+        description="RMA is a Zambia-focused mining-sector local-content and supplier-development platform helping Zambian SMEs become finance-ready and contract-ready suppliers to the mining value chain—while supporting mining companies with practical implementation tools, verification workflows, and reporting outcomes."
       >
         <div className="space-y-4">
           <div className="rma-card p-6">
             <p className="text-sm font-semibold text-[var(--rma-ink)]">
               What makes RMA different
             </p>
-            <p className="mt-2 text-sm leading-6 text-black/60">
-              RMA addresses structural constraints that prevent SMEs from fully
-              participating in large-scale industry value chains. We take a
-              systemic approach: transforming the ecosystems in which SMEs
-              operate while equipping enterprises to meet the standards,
-              reporting requirements, and expectations of corporates, financial
-              institutions, and investors.
+            <p className="mt-2 text-sm leading-6 rma-muted">
+              We focus on mining-sector transformation: helping mining houses, EPCs, and contractors
+              operationalise local procurement and supplier development through verified SME pipelines,
+              readiness programmes, and monitoring that supports local-content reporting and supplier
+              development outcomes. We do not provide legal advice; our work is designed to support
+              implementation and programme delivery.
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               {
-                title: "Systemic impact",
-                body: "We reshape policy frameworks, market structures, and enabling environments so SMEs can thrive long-term.",
+                title: "Mining supplier development delivery",
+                body: "Readiness assessment, training, and mentorship designed for mining procurement and contract execution needs.",
               },
               {
                 title: "Regulatory depth",
-                body: "Deep expertise in local content regulations, including Zambia’s Statutory Instrument 26 of 2025.",
+                body: "Aligned to Zambia’s mining local-content direction, including SI 68 of 2025 and related reforms affecting procurement and supplier development.",
               },
               {
-                title: "End-to-end programme management",
-                body: "From needs assessment and curriculum design to mentorship and impact monitoring.",
+                title: "Verification + pipeline building",
+                body: "KYC and profiling to build verified supplier pipelines for mining categories and supplier development programmes.",
               },
               {
-                title: "Data-driven & digital",
-                body: "Real-time monitoring platforms and benchmarking tools for transparency and risk management.",
+                title: "Reporting & transparency",
+                body: "Dashboards, exports, and KPI tracking designed to support programme monitoring and local-content reporting outcomes.",
               },
             ].map((item) => (
-              <div key={item.title} className="rma-card p-6">
+              <div key={item.title} className="rma-card rma-card-interactive p-6">
                 <p className="text-base font-semibold text-[var(--rma-ink)]">
                   {item.title}
                 </p>
-                <p className="mt-2 text-sm leading-6 text-black/60">
+                <p className="mt-2 text-sm leading-6 rma-muted">
                   {item.body}
                 </p>
               </div>
