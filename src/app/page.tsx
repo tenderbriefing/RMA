@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main>
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0">
+        <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-28 left-1/2 h-[560px] w-[980px] -translate-x-1/2 rounded-full bg-[color:var(--rma-green)]/12 blur-3xl" />
           <div className="absolute -bottom-44 right-[-160px] h-[560px] w-[560px] rounded-full bg-[color:var(--rma-blue)]/10 blur-3xl" />
           <div className="absolute top-24 left-[-160px] h-[520px] w-[520px] rounded-full bg-[color:var(--rma-orange)]/8 blur-3xl" />

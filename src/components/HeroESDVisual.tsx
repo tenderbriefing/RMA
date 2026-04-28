@@ -137,15 +137,20 @@ export function HeroESDVisual() {
 
   return (
     <div className="relative">
-      <div className="absolute -inset-10 -z-10 opacity-80">
+      <div className="pointer-events-none absolute -inset-10 -z-10 opacity-80">
         <div className="absolute -top-10 left-6 h-56 w-56 rounded-full bg-[color:var(--rma-green)]/12 blur-3xl" />
         <div className="absolute top-14 right-2 h-56 w-56 rounded-full bg-[color:var(--rma-blue)]/12 blur-3xl" />
         <div className="absolute -bottom-14 left-14 h-56 w-56 rounded-full bg-[color:var(--rma-orange)]/12 blur-3xl" />
       </div>
 
       <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white/85 p-6 shadow-[0_18px_55px_rgba(10,18,35,0.10)] backdrop-blur sm:p-7">
-        <div className="absolute inset-0 bg-[radial-gradient(900px_circle_at_15%_10%,rgba(31,106,58,0.12),transparent_45%),radial-gradient(800px_circle_at_85%_20%,rgba(37,58,135,0.12),transparent_45%),radial-gradient(900px_circle_at_45%_95%,rgba(240,116,43,0.10),transparent_45%)]" />
-        <div className={["absolute -inset-24 blur-3xl opacity-70", acc.glow].join(" ")} />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_15%_10%,rgba(31,106,58,0.12),transparent_45%),radial-gradient(800px_circle_at_85%_20%,rgba(37,58,135,0.12),transparent_45%),radial-gradient(900px_circle_at_45%_95%,rgba(240,116,43,0.10),transparent_45%)]" />
+        <div
+          className={[
+            "pointer-events-none absolute -inset-24 blur-3xl opacity-70",
+            acc.glow,
+          ].join(" ")}
+        />
 
         <div className="relative">
           <div className="flex items-center justify-between gap-4">
