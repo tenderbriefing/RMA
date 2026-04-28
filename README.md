@@ -1,6 +1,6 @@
-## Resilient Markets Africa (RMA) Website
+## RMA Zambia · SME KYC Platform
 
-Public website for `www.rma.africa` plus an **SME Registration** form that saves submissions to **Firestore** (Firebase).
+A Firebase-powered **SME KYC registration platform for Zambia** for `rmazambia-10f55`, built with Next.js + Firebase Authentication + Firestore.
 
 ## Getting Started
 
@@ -12,11 +12,10 @@ npm install
 
 ### 2) Configure environment variables
 
-Create `.env.local` (copy from `.env.local.example`) and set Firebase Admin credentials:
+Create `.env.local` (copy from `.env.example`) and set:
 
-- `FIREBASE_PROJECT_ID`
-- `FIREBASE_CLIENT_EMAIL`
-- `FIREBASE_PRIVATE_KEY` (keep `\n` escapes)
+- Firebase Web SDK (client): `VITE_FIREBASE_*`
+- Firebase Admin (server): `FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY`
 
 ### 3) Run the development server
 
@@ -28,15 +27,26 @@ Open `http://localhost:3000`.
 
 ## SME Registration storage (Firestore)
 
-- Submissions are written by `POST /api/sme-registration` into the collection:
-  - `smes` (doc id = `smeId`)
-- This endpoint uses **Firebase Admin SDK** on the server (credentials are **not** exposed to the browser).
+- SME KYC records are stored in:
+  - `smes/{uid}` (doc id = authenticated user UID)
+- Admin roles are stored in:
+  - `users/{uid}` with `{ role: "admin" }`
 
-## Admin export (CSV/JSON)
+## Routes
 
-- Page: `/admin/registrations`
-- API: `GET /api/admin/registrations?format=csv|json`
-- Protected by `ADMIN_EXPORT_TOKEN` (set in `.env.local`)
+- Auth:
+  - `/login`
+  - `/register`
+- SME:
+  - `/dashboard`
+  - `/dashboard/kyc`
+- Admin:
+  - `/admin` (role-based; non-admins are redirected to `/dashboard`)
+
+## CSV export
+
+- Full export: `GET /api/admin/smes/export`
+- Filtered export: `GET /api/admin/smes/export?province=...&district=...&sector=...&status=...&q=...`
 
 ## Deploy + custom domain (`www.rma.africa`)
 
@@ -45,9 +55,8 @@ Open `http://localhost:3000`.
   - `FIREBASE_PROJECT_ID`
   - `FIREBASE_CLIENT_EMAIL`
   - `FIREBASE_PRIVATE_KEY`
-  - `ADMIN_EXPORT_TOKEN`
 - Connect the custom domain `www.rma.africa` in Firebase App Hosting and update DNS as instructed.
 
-## Notes
+## Firestore rules
 
-- The repo currently contains no commits (fresh scaffold). Commit when you’re ready.
+- Rules are in `firestore.rules` and deny all public access.

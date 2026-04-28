@@ -1,4 +1,5 @@
 import { cert, getApps, initializeApp } from "firebase-admin/app";
+import { getAuth } from "firebase-admin/auth";
 import { getFirestore } from "firebase-admin/firestore";
 
 function requireEnv(name: string) {
@@ -19,5 +20,11 @@ export function getAdminDb() {
   }
 
   return getFirestore();
+}
+
+export function getAdminAuth() {
+  // Ensure app is initialized
+  getAdminDb();
+  return getAuth();
 }
 

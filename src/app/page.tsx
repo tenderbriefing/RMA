@@ -29,8 +29,8 @@ export default function Home() {
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href="/sme-register" className="rma-btn rma-btn-primary">
-                Register your SME
+              <Link href="/register" className="rma-btn rma-btn-primary">
+                Create SME account
               </Link>
               <Link href="/about" className="rma-btn rma-btn-secondary">
                 Learn about RMA
@@ -120,10 +120,10 @@ export default function Home() {
               </p>
             </div>
             <Link
-              href="/sme-register"
+              href="/register"
               className="rma-btn bg-white text-[var(--rma-ink)] hover:bg-white/95"
             >
-              Start SME registration
+              Start SME onboarding
             </Link>
           </div>
         </div>

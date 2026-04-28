@@ -28,8 +28,11 @@ export function NavBar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link href="/sme-register" className="rma-btn rma-btn-primary">
-              Register your SME
+            <Link href="/login" className="rma-btn rma-btn-secondary">
+              Login
+            </Link>
+            <Link href="/register" className="rma-btn rma-btn-primary">
+              Register
             </Link>
           </div>
         </div>
