@@ -28,14 +28,6 @@ export function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/sectors"
-                    className="text-black/70 hover:text-black"
-                  >
-                    Mining Categories
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/capabilities"
                     className="text-black/70 hover:text-black"
                   >
@@ -47,7 +39,7 @@ export function Footer() {
                     href="/register"
                     className="text-black/70 hover:text-black"
                   >
-                    SME Registration
+                    Business Registration
                   </Link>
                 </li>
               </ul>

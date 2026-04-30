@@ -3,21 +3,15 @@ import Image from "next/image";
 
 export function Logo() {
   return (
-    <Link href="/" className="inline-flex items-center gap-3">
+    <Link href="/" className="inline-flex items-center">
       <Image
         src="/rma-logo-transparent.png"
         alt="Resilient Markets Africa (RMA)"
-        width={44}
-        height={44}
+        width={128}
+        height={128}
         priority
-        className="h-11 w-11"
+        className="h-24 w-24 sm:h-28 sm:w-28"
       />
-      <span className="leading-tight">
-        <span className="block text-sm font-semibold tracking-tight text-[var(--rma-ink)]">
-          Resilient Markets Africa
-        </span>
-        <span className="block text-xs text-black/50">RMA</span>
-      </span>
     </Link>
   );
 }

@@ -56,7 +56,7 @@ export default function ContactPage() {
               href="/register"
               className="rma-btn bg-white text-[var(--rma-ink)] hover:bg-white/95"
             >
-              Register Your SME
+              Register Your Business
             </Link>
           </div>
         </div>
