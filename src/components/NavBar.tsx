@@ -1,9 +1,12 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { MobileNav } from "@/components/MobileNav";
 
 const navItems: Array<{ href: string; label: string }> = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/capabilities", label: "Capabilities" },
+  { href: "/team", label: "Team" },
+  { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -25,20 +28,15 @@ export function NavBar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/register"
-              className="text-sm font-semibold text-black/70 transition hover:text-black"
-            >
-              Business Registration
-            </Link>
           </nav>
 
           <div className="flex items-center gap-2">
+            <MobileNav />
             <Link href="/login" className="rma-btn rma-btn-secondary">
               Login
             </Link>
             <Link href="/register" className="rma-btn rma-btn-primary">
-              Register Your Business
+              Register SME
             </Link>
           </div>
         </div>

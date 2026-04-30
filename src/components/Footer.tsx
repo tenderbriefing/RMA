@@ -22,16 +22,37 @@ export function Footer() {
               </p>
               <ul className="mt-3 space-y-2 text-sm">
                 <li>
+                  <Link href="/" className="text-black/70 hover:text-black">
+                    Home
+                  </Link>
+                </li>
+                <li>
                   <Link href="/about" className="text-black/70 hover:text-black">
                     About
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/capabilities"
+                    href="/team"
                     className="text-black/70 hover:text-black"
                   >
-                    Capabilities
+                    Team
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-black/70 hover:text-black"
+                  >
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="text-black/70 hover:text-black"
+                  >
+                    Contact
                   </Link>
                 </li>
                 <li>
@@ -39,7 +60,7 @@ export function Footer() {
                     href="/register"
                     className="text-black/70 hover:text-black"
                   >
-                    Business Registration
+                    Register SME
                   </Link>
                 </li>
               </ul>
