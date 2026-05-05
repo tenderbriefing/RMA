@@ -161,8 +161,7 @@ export function ContactFormClient() {
       </div>
 
       <p className="mt-4 text-xs leading-5 rma-muted">
-        By submitting this form, you consent to RMA using your contact details to respond to your
-        enquiry. Do not submit confidential documents through this form.
+        By submitting this form, you consent to RMA using your details to respond to your enquiry.
       </p>
 
       {status === "success" ? (
@@ -190,7 +189,7 @@ export function ContactFormClient() {
           disabled={status === "submitting"}
           className="rma-btn rma-btn-primary disabled:opacity-70"
         >
-          {status === "submitting" ? "Sending…" : "Send Enquiry"}
+          {status === "submitting" ? "Sending…" : "Send Message"}
         </button>
       </div>
     </form>

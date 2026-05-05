@@ -10,8 +10,7 @@ export function Footer() {
               Resilient Markets Africa (RMA)
             </p>
             <p className="mt-3 max-w-xl text-sm leading-6 rma-muted">
-              A Zambia-focused mining local-content and supplier-development platform supporting verified,
-              contract-ready, finance-ready SME supplier pipelines for mining procurement and reporting outcomes.
+              Resilient Markets Africa supports Zambia’s mining sector with SME supplier development, finance-readiness, and local-content implementation support.
             </p>
           </div>
 
