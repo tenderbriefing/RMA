@@ -193,30 +193,6 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="rma-container-wide py-12">
-        <p className="text-2xl font-semibold tracking-tight text-[var(--rma-ink)]">
-          What happens after you submit?
-        </p>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {[
-            { n: "1", t: "We review your enquiry" },
-            { n: "2", t: "We respond via email" },
-            { n: "3", t: "We guide the next action" },
-          ].map((s) => (
-            <div key={s.n} className="rma-card p-6">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-black/[.04] text-sm font-semibold text-black/70">
-                  {s.n}
-                </span>
-                <p className="text-base font-semibold text-[var(--rma-ink)]">
-                  {s.t}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div className="rma-container-wide pb-14">
         <div className="rma-card overflow-hidden">
           <div className="p-6 sm:p-8">

@@ -55,39 +55,6 @@ export default function TeamPage() {
         </div>
 
         <TeamGridClient team={team} />
-
-        <div className="mt-10 rounded-3xl border border-black/10 bg-white p-6 text-sm text-black/60">
-          To add photos, place image files in{" "}
-          <code className="rounded bg-black/[.04] px-2 py-1 text-xs">public/team/</code>{" "}
-          using these filenames:
-          <ul className="mt-3 list-disc pl-5">
-            <li>
-              <code className="rounded bg-black/[.04] px-2 py-1 text-xs">
-                nachilala-nkombo.jpg
-              </code>
-            </li>
-            <li>
-              <code className="rounded bg-black/[.04] px-2 py-1 text-xs">
-                fungai-musana.jpg
-              </code>
-            </li>
-            <li>
-              <code className="rounded bg-black/[.04] px-2 py-1 text-xs">
-                tonny-simbaya.jpg
-              </code>
-            </li>
-            <li>
-              <code className="rounded bg-black/[.04] px-2 py-1 text-xs">
-                mafipe-chunga.jpg
-              </code>
-            </li>
-            <li>
-              <code className="rounded bg-black/[.04] px-2 py-1 text-xs">
-                ruth-chanda.jpg
-              </code>
-            </li>
-          </ul>
-        </div>
       </div>
     </main>
   );
