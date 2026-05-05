@@ -75,9 +75,9 @@ export function Footer() {
                   Email:{" "}
                   <a
                     className="font-medium text-black hover:underline"
-                    href="mailto:nachilala@rma.africa"
+                    href="mailto:info@rma.africa"
                   >
-                    nachilala@rma.africa
+                    info@rma.africa
                   </a>
                 </p>
                 <p className="leading-6">

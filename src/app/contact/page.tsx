@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Section } from "@/components/Section";
+import { ContactFormClient } from "@/app/contact/ContactFormClient";
 
 export const metadata = {
   title: "Contact",
@@ -10,72 +11,74 @@ export default function ContactPage() {
     <main>
       <Section
         eyebrow="Contact"
-        title="Let’s build Zambia’s mining supplier pipeline."
-        description="We welcome enquiries from mining companies, EPCs and contractors, banks and finance partners, government and local-content stakeholders, and Zambian SMEs supplying the mining value chain."
+        title="Contact RMA"
+        description="Partner with RMA to build a verified, finance-ready mining supplier pipeline for Zambia."
       >
-        <div className="rma-card rma-card-interactive mb-6 p-6">
-          <p className="text-sm font-semibold text-[var(--rma-ink)]">
-            Partnership enquiries
-          </p>
-          <p className="mt-2 text-sm leading-6 rma-muted">
-            RMA supports mining companies to operationalise local-content direction through verified supplier pipelines,
-            supplier development delivery, finance-readiness preparation, and reporting outputs aligned to procurement transformation.
-          </p>
-        </div>
+        <div className="grid gap-6 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <div className="rma-card p-6">
+              <p className="text-sm font-semibold text-[var(--rma-ink)]">
+                Contact details
+              </p>
+              <p className="mt-2 text-sm leading-6 rma-muted">
+                For mining companies, SMEs, finance partners, and local-content stakeholders.
+              </p>
 
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rma-card p-6">
-            <p className="text-sm font-semibold text-[var(--rma-ink)]">Email</p>
-            <p className="mt-2 text-sm rma-muted">
-              <a
-                className="font-medium text-black hover:underline"
-                href="mailto:nachilala@rma.africa"
-              >
-                nachilala@rma.africa
-              </a>
-            </p>
-          </div>
-          <div className="rma-card p-6">
-            <p className="text-sm font-semibold text-[var(--rma-ink)]">
-              Address
-            </p>
-            <p className="mt-2 text-sm leading-6 rma-muted">
-              Unit 3 Katete Flats Off Roan Road, Kabulonga, Lusaka, Zambia
-            </p>
-          </div>
-        </div>
+              <div className="mt-5 space-y-3 text-sm">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                    Email
+                  </p>
+                  <a
+                    className="mt-1 inline-block font-medium text-black hover:underline"
+                    href="mailto:info@rma.africa"
+                  >
+                    info@rma.africa
+                  </a>
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                    Address
+                  </p>
+                  <p className="mt-1 leading-6 text-black/70">
+                    Unit 3 Katete Flats Off Roan Road, Kabulonga, Lusaka, Zambia
+                  </p>
+                </div>
+              </div>
 
-        <div className="mt-6 rounded-3xl border border-black/10 bg-[linear-gradient(135deg,var(--rma-green),var(--rma-green-2))] p-6 text-white">
-          <p className="text-sm font-semibold">Mining companies & SMEs</p>
-          <p className="mt-2 text-sm text-white/85">
-            Mining houses, EPCs, and contractors: partner with RMA to operationalise local procurement and supplier
-            development outcomes. Zambian SMEs: register to be considered for RMA’s mining supplier development pipeline.
-          </p>
-          <div className="mt-5">
-            <Link
-              href="/register"
-              className="rma-btn bg-white text-[var(--rma-ink)] hover:bg-white/95"
-            >
-              Register Your Business
-            </Link>
-          </div>
-        </div>
+              <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+                <Link href="/register" className="rma-btn rma-btn-primary">
+                  Register SME
+                </Link>
+                <Link href="/services" className="rma-btn rma-btn-secondary">
+                  View Services
+                </Link>
+              </div>
+            </div>
 
-        <div className="mt-6 rma-card p-6">
-          <p className="text-sm font-semibold text-[var(--rma-ink)]">
-            Finance partners (banks & DFIs)
-          </p>
-          <p className="mt-2 text-sm leading-6 rma-muted">
-            If you finance mining-sector SMEs, RMA can support a screened pipeline with verified demand, structured funding needs,
-            and delivery monitoring—subject to your assessment and eligibility criteria.
-          </p>
-          <p className="mt-3 text-xs leading-5 rma-muted">
-            RMA does not approve funding and does not guarantee funding outcomes.
-          </p>
-          <div className="mt-4">
-            <Link href="mailto:nachilala@rma.africa" className="rma-btn rma-btn-secondary">
-              Contact for finance partnerships
-            </Link>
+            <div className="mt-6 overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
+              <div className="aspect-[16/10] w-full">
+                <iframe
+                  title="RMA office location map"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-full w-full"
+                  src="https://www.google.com/maps?q=Unit%203%20Katete%20Flats%20Off%20Roan%20Road%2C%20Kabulonga%2C%20Lusaka%2C%20Zambia&output=embed"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7">
+            <div className="mb-4 rounded-3xl border border-black/10 bg-white p-6">
+              <p className="text-sm font-semibold text-[var(--rma-ink)]">
+                Send an enquiry
+              </p>
+              <p className="mt-2 text-sm leading-6 rma-muted">
+                Tell us what you need and we’ll respond via info@rma.africa.
+              </p>
+            </div>
+            <ContactFormClient />
           </div>
         </div>
       </Section>
