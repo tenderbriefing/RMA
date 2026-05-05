@@ -74,13 +74,13 @@ export function ContactFormClient() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="rma-card p-6">
+    <form onSubmit={onSubmit} className="rma-card p-6 sm:p-8">
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="sm:col-span-1">
           <label className="text-sm font-semibold text-[var(--rma-ink)]">
             Full name <span className="text-[color:var(--rma-orange)]">*</span>
             <input
-              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
+              className="mt-2 h-12 w-full rounded-2xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               autoComplete="name"
@@ -93,7 +93,7 @@ export function ContactFormClient() {
           <label className="text-sm font-semibold text-[var(--rma-ink)]">
             Organisation
             <input
-              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
+              className="mt-2 h-12 w-full rounded-2xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
               value={organisation}
               onChange={(e) => setOrganisation(e.target.value)}
               autoComplete="organization"
@@ -105,7 +105,7 @@ export function ContactFormClient() {
           <label className="text-sm font-semibold text-[var(--rma-ink)]">
             Email <span className="text-[color:var(--rma-orange)]">*</span>
             <input
-              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
+              className="mt-2 h-12 w-full rounded-2xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               autoComplete="email"
@@ -118,7 +118,7 @@ export function ContactFormClient() {
           <label className="text-sm font-semibold text-[var(--rma-ink)]">
             Phone
             <input
-              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
+              className="mt-2 h-12 w-full rounded-2xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               autoComplete="tel"
@@ -130,7 +130,7 @@ export function ContactFormClient() {
           <label className="text-sm font-semibold text-[var(--rma-ink)]">
             Enquiry type <span className="text-[color:var(--rma-orange)]">*</span>
             <select
-              className="mt-2 w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
+              className="mt-2 h-12 w-full rounded-2xl border border-black/10 bg-white px-4 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
               value={enquiryType}
               onChange={(e) =>
                 setEnquiryType((e.target.value as EnquiryType) || "")
@@ -151,7 +151,7 @@ export function ContactFormClient() {
           <label className="text-sm font-semibold text-[var(--rma-ink)]">
             Message <span className="text-[color:var(--rma-orange)]">*</span>
             <textarea
-              className="mt-2 min-h-[140px] w-full resize-y rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
+              className="mt-2 min-h-[170px] w-full resize-y rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-[color:var(--rma-blue)]/25"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               required
@@ -177,7 +177,7 @@ export function ContactFormClient() {
         </div>
       ) : null}
 
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <a
           href="mailto:info@rma.africa"
           className="text-sm font-semibold text-[color:var(--rma-blue)] hover:underline"
@@ -187,7 +187,7 @@ export function ContactFormClient() {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="rma-btn rma-btn-primary disabled:opacity-70"
+          className="rma-btn rma-btn-primary w-full disabled:opacity-70 sm:w-auto"
         >
           {status === "submitting" ? "Sending…" : "Send Message"}
         </button>
