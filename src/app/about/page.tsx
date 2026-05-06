@@ -66,8 +66,8 @@ export default function AboutPage() {
       </div>
 
       <div className="rma-container-wide py-12">
-        <div className="grid gap-8 lg:grid-cols-12">
-          <div className="lg:col-span-4">
+        <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10">
+          <aside>
             <AnchorNav
               items={[
                 { href: "#purpose", label: "Our Purpose" },
@@ -76,9 +76,9 @@ export default function AboutPage() {
                 { href: "#focus-areas", label: "Strategic focus areas" },
               ]}
             />
-          </div>
+          </aside>
 
-          <div className="space-y-10 lg:col-span-8">
+          <div className="space-y-10">
             <section id="purpose" className="border-b border-black/10 pb-10">
               <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
                 Our Purpose
