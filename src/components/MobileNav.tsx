@@ -9,7 +9,6 @@ const links: Array<{ href: string; label: string }> = [
   { href: "/team", label: "Team" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
-  { href: "/login", label: "Login" },
   { href: "/register", label: "Register SME" },
 ];
 

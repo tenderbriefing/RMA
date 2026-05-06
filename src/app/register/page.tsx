@@ -122,10 +122,7 @@ export default function RegisterPage() {
           ) : null}
 
           <p className="text-xs text-black/60">
-            Already have an account?{" "}
-            <Link href="/login" className="font-medium text-black underline">
-              Sign in
-            </Link>
+            Already have an account? Use the Login page to sign in.
           </p>
         </form>
       </div>
