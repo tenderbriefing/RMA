@@ -73,43 +73,99 @@ const team = [
 
 export default function TeamPage() {
   return (
-    <main className="rma-container py-14 sm:py-18">
-      <div className="mx-auto max-w-6xl">
-        <div className="text-center">
-          <p className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold text-black/70">
-            RMA Zambia
-          </p>
-          <h1 className="mt-5 text-3xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-5xl">
-            The RMA Team
-          </h1>
-          <p className="mt-4 text-base leading-7 text-[color:var(--rma-muted)]">
-            We design and deliver Enterprise & Supplier Development (ESD) programmes that prepare SMEs
-            for national and multinational supply chains.
-          </p>
+    <main>
+      <div className="relative overflow-hidden border-b border-black/5 bg-white">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(1000px_circle_at_15%_15%,rgba(31,106,58,0.11),transparent_55%),radial-gradient(900px_circle_at_78%_25%,rgba(37,58,135,0.11),transparent_55%),radial-gradient(900px_circle_at_55%_90%,rgba(240,116,43,0.09),transparent_55%)]" />
         </div>
+        <div className="rma-container-wide relative py-12 sm:py-16">
+          <div className="max-w-4xl">
+            <div className="flex items-center gap-3">
+              <span className="h-2 w-10 rounded-full zambia-stripe" aria-hidden="true" />
+              <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                Team
+              </p>
+            </div>
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-5xl">
+              The RMA Team
+            </h1>
+            <p className="mt-4 text-base leading-7 rma-muted sm:text-lg">
+              Leadership and technical expertise across enterprise development, procurement, finance,
+              and organisational effectiveness.
+            </p>
+          </div>
 
-        <TeamGridClient team={team} />
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                t: "Experience",
+                v: "Deep sector exposure",
+                b: "Mining supply chains, finance readiness, and SME development.",
+              },
+              {
+                t: "Approach",
+                v: "Practical + implementable",
+                b: "Programmes designed for measurable outcomes, not theory.",
+              },
+              {
+                t: "Network",
+                v: "Partners + practitioners",
+                b: "We work with mining houses, banks/DFIs, corporates, and SMEs.",
+              },
+            ].map((x) => (
+              <div
+                key={x.t}
+                className="overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm"
+              >
+                <div className="pointer-events-none h-1 w-full bg-[linear-gradient(90deg,var(--rma-green),var(--rma-blue),var(--rma-orange))] opacity-70" />
+                <div className="p-5">
+                  <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                    {x.t}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-[var(--rma-ink)]">
+                    {x.v}
+                  </p>
+                  <p className="mt-1 text-sm leading-6 rma-muted">{x.b}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="zambia-stripe h-1 w-full" />
+      </div>
 
-        <div className="mt-12 overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
-          <div className="pointer-events-none h-1 w-full zambia-stripe" />
-          <div className="p-6 sm:p-8">
-            <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
-              Trainers & mentors
-            </p>
-            <p className="mt-3 text-2xl font-semibold tracking-tight text-[var(--rma-ink)]">
-              Join our network of trainers and mentors.
-            </p>
-            <p className="mt-3 text-sm leading-6 rma-muted">
-              If you have experience supporting SMEs with supplier readiness, compliance, procurement,
-              finance-readiness, HSE, or contract execution, we’d like to hear from you.
-            </p>
-            <div className="mt-6 flex flex-col gap-2 sm:flex-row">
-              <a href="/apply/trainer-mentor" className="rma-btn rma-btn-primary">
-                Apply to join as a trainer/mentor
-              </a>
-              <a href="/services" className="rma-btn rma-btn-secondary">
-                View services
-              </a>
+      <div className="rma-container-wide py-12 sm:py-14">
+        <div className="mx-auto max-w-6xl">
+          <TeamGridClient team={team} />
+
+          <div className="mt-12 overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
+            <div className="pointer-events-none h-1 w-full zambia-stripe" />
+            <div className="relative p-6 sm:p-8">
+              <div className="pointer-events-none absolute inset-0 opacity-60 bg-[radial-gradient(900px_circle_at_20%_0%,rgba(37,58,135,0.07),transparent_45%),radial-gradient(800px_circle_at_90%_20%,rgba(31,106,58,0.07),transparent_45%)]" />
+              <div className="relative">
+                <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                  Trainers & mentors
+                </p>
+                <p className="mt-3 text-2xl font-semibold tracking-tight text-[var(--rma-ink)]">
+                  Join our network of trainers and mentors.
+                </p>
+                <p className="mt-3 text-sm leading-6 rma-muted">
+                  If you have experience supporting SMEs with supplier readiness, compliance,
+                  procurement, finance-readiness, HSE, or contract execution, we’d like to hear from
+                  you.
+                </p>
+                <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+                  <a
+                    href="/apply/trainer-mentor"
+                    className="rma-btn rma-btn-primary"
+                  >
+                    Apply to join as a trainer/mentor
+                  </a>
+                  <a href="/contact" className="rma-btn rma-btn-secondary">
+                    Contact RMA
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -185,8 +185,11 @@ export function HeroMediaSlider() {
                 <Link href="/register" className="rma-btn rma-btn-primary">
                   Register Your SME
                 </Link>
-                <Link href="/contact" className="rma-btn rma-btn-secondary">
-                  Partner With RMA
+                <Link
+                  href="/apply/trainer-mentor"
+                  className="rma-btn rma-btn-secondary"
+                >
+                  Apply to join as a trainer/mentor
                 </Link>
               </div>
 

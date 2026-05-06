@@ -32,19 +32,54 @@ export function EcosystemCircle() {
       >
         <defs>
           <radialGradient id="rma-bg" cx="50%" cy="50%" r="60%">
-            <stop offset="0%" stopColor="rgba(31,106,58,0.10)" />
-            <stop offset="60%" stopColor="rgba(31,106,58,0.00)" />
+            <stop offset="0%" stopColor="rgba(31,106,58,0.16)" />
+            <stop offset="55%" stopColor="rgba(31,106,58,0.06)" />
+            <stop offset="75%" stopColor="rgba(31,106,58,0.00)" />
           </radialGradient>
+          <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="rgba(31,106,58,0.55)" />
+            <stop offset="55%" stopColor="rgba(37,58,135,0.55)" />
+            <stop offset="100%" stopColor="rgba(240,116,43,0.55)" />
+          </linearGradient>
           <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
             <feDropShadow dx="0" dy="8" stdDeviation="8" floodColor="rgba(0,0,0,0.10)" />
           </filter>
         </defs>
 
         {/* background rings */}
-        <circle cx={cx} cy={cy} r="490" fill="white" stroke="rgba(0,0,0,0.10)" />
+        <circle
+          cx={cx}
+          cy={cy}
+          r="490"
+          fill="white"
+          stroke="url(#ringGrad)"
+          strokeWidth="6"
+          opacity="0.55"
+        />
         <circle cx={cx} cy={cy} r="420" fill="url(#rma-bg)" />
-        <circle cx={cx} cy={cy} r="360" fill="none" stroke="rgba(0,0,0,0.10)" />
-        <circle cx={cx} cy={cy} r="270" fill="none" stroke="rgba(0,0,0,0.10)" />
+        <circle cx={cx} cy={cy} r="360" fill="none" stroke="url(#ringGrad)" strokeWidth="5" opacity="0.7" />
+        <circle cx={cx} cy={cy} r="270" fill="none" stroke="url(#ringGrad)" strokeWidth="5" opacity="0.5" />
+
+        {/* subtle connectors */}
+        {anglesDeg.map((deg) => {
+          const a = (deg * Math.PI) / 180;
+          const x2 = cx + 250 * Math.cos(a);
+          const y2 = cy + 250 * Math.sin(a);
+          const x1 = cx + 110 * Math.cos(a);
+          const y1 = cy + 110 * Math.sin(a);
+          return (
+            <line
+              key={deg}
+              x1={x1}
+              y1={y1}
+              x2={x2}
+              y2={y2}
+              stroke="rgba(37,58,135,0.28)"
+              strokeWidth="4"
+              strokeLinecap="round"
+            />
+          );
+        })}
 
         {/* center card */}
         <g filter="url(#softShadow)">
@@ -78,6 +113,15 @@ export function EcosystemCircle() {
               rx="34"
               fill="rgba(255,255,255,0.96)"
               stroke="rgba(0,0,0,0.10)"
+            />
+            <rect
+              x={n.x}
+              y={n.y}
+              width="10"
+              height={nodeH}
+              rx="5"
+              fill={`color-mix(in srgb, ${n.c} 65%, white)`}
+              opacity="0.7"
             />
             <rect
               x={n.x + nodeW / 2 - 36}

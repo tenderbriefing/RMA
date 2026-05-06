@@ -4,7 +4,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.rma.africa";
   const now = new Date();
 
-  const routes = ["/", "/about", "/sectors", "/capabilities", "/contact", "/sme-register"];
+  const routes = [
+    "/",
+    "/about",
+    "/team",
+    "/services",
+    "/sectors",
+    "/capabilities",
+    "/contact",
+    "/register",
+    "/apply/trainer-mentor",
+  ];
 
   return routes.map((path) => ({
     url: `${base}${path}`,

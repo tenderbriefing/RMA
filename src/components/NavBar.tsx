@@ -23,9 +23,6 @@ export function NavBar() {
 
           <div className="flex items-center gap-2">
             <MobileNav />
-            <Link href="/register" className="rma-btn rma-btn-primary">
-              Register SME
-            </Link>
           </div>
         </div>
       </div>

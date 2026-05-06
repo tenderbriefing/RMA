@@ -17,8 +17,8 @@ export function StickyCta() {
             <Link href="/register" className="rma-btn rma-btn-primary">
               Register
             </Link>
-            <Link href="/contact" className="rma-btn rma-btn-secondary">
-              Partner
+            <Link href="/apply/trainer-mentor" className="rma-btn rma-btn-secondary">
+              Apply to join as a trainer/mentor
             </Link>
           </div>
         </div>

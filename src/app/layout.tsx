@@ -21,8 +21,28 @@ export const metadata: Metadata = {
     template: "%s · Resilient Markets Africa",
   },
   description:
-    "Resilient Markets Africa supports Zambia’s mining sector with local-content implementation, SME supplier development, KYC verification, finance-readiness, contract execution support, and compliance reporting.",
+    "Resilient Markets Africa (RMA) is an Enterprise & Supplier Development (ESD) partner supporting Zambia’s mining sector with local-content implementation, SME supplier development, supplier verification, finance-readiness, contract execution support, and compliance reporting.",
   metadataBase: new URL("https://www.rma.africa"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.rma.africa",
+    siteName: "Resilient Markets Africa",
+    title: "RMA Zambia | Mining Local Content, Supplier Finance & SME Development",
+    description:
+      "Resilient Markets Africa (RMA) is an Enterprise & Supplier Development (ESD) partner supporting Zambia’s mining sector with local-content implementation, SME supplier development, supplier verification, and finance-readiness.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Resilient Markets Africa (RMA)",
+    description:
+      "Enterprise & Supplier Development (ESD) partner supporting Zambia’s mining supplier pipeline and SME readiness.",
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
 };
 
 export default function RootLayout({

@@ -41,7 +41,7 @@ export default function Home() {
                 Ready to register?
               </p>
               <p className="mt-2 text-sm leading-6 rma-muted">
-                Complete KYC so RMA can build a verified supplier pipeline for mining procurement and supplier development programmes.
+                Complete your profile so RMA can build a verified supplier pipeline for mining procurement and Enterprise &amp; Supplier Development (ESD) programmes.
               </p>
               <div className="mt-5 flex flex-col gap-2">
                 <a href="/register" className="rma-btn rma-btn-primary w-full">

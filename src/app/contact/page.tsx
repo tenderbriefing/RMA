@@ -7,14 +7,45 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <main>
+      <div className="relative overflow-hidden border-b border-black/5 bg-white">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(900px_circle_at_18%_20%,rgba(31,106,58,0.10),transparent_55%),radial-gradient(900px_circle_at_78%_30%,rgba(37,58,135,0.10),transparent_55%),radial-gradient(900px_circle_at_55%_90%,rgba(240,116,43,0.08),transparent_55%)]" />
+        </div>
+        <div className="rma-container-wide relative py-12 sm:py-14">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3">
+              <span className="h-2 w-10 rounded-full zambia-stripe" aria-hidden="true" />
+              <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                Contact
+              </p>
+            </div>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-6xl">
+              Contact RMA
+            </h1>
+            <p className="mt-4 text-base leading-7 text-black/70 sm:text-lg">
+              Speak to RMA about mining supplier development, SME registration, finance-readiness, and local-content partnerships.
+            </p>
+          </div>
+        </div>
+        <div className="zambia-stripe h-1 w-full" />
+      </div>
+
       <div className="rma-container-wide py-10 sm:py-14">
-        <div className="max-w-3xl">
-          <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-6xl">
-            Contact RMA
-          </h1>
-          <p className="mt-4 text-base leading-7 text-black/70 sm:text-lg">
-            Speak to RMA about mining supplier development, SME registration, finance-readiness, and local-content partnerships.
-          </p>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {[
+            { t: "Email", v: "info@rma.africa", b: "Partnerships, SME support, and general enquiries." },
+            { t: "Office", v: "Kabulonga, Lusaka", b: "Unit 3 Katete Flats, Off Roan Road." },
+            { t: "Focus", v: "Mining supplier development", b: "Local-content and supplier pipeline outcomes." },
+          ].map((x) => (
+            <div key={x.t} className="overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
+              <div className="pointer-events-none h-1 w-full bg-[linear-gradient(90deg,var(--rma-green),var(--rma-blue),var(--rma-orange))] opacity-70" />
+              <div className="p-5">
+                <p className="text-xs font-semibold uppercase tracking-wider rma-muted">{x.t}</p>
+                <p className="mt-2 text-sm font-semibold text-[var(--rma-ink)]">{x.v}</p>
+                <p className="mt-1 text-sm leading-6 rma-muted">{x.b}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-12">
@@ -23,7 +54,9 @@ export default function ContactPage() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+            <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+              <div className="pointer-events-none absolute inset-0 opacity-70 bg-[radial-gradient(900px_circle_at_20%_20%,rgba(31,106,58,0.08),transparent_55%),radial-gradient(900px_circle_at_80%_35%,rgba(37,58,135,0.08),transparent_55%),radial-gradient(900px_circle_at_50%_90%,rgba(240,116,43,0.06),transparent_55%)]" />
+              <div className="relative">
               <p className="text-sm font-semibold text-[var(--rma-ink)]">Contact details</p>
 
               <div className="mt-5 space-y-5 text-sm">
@@ -62,11 +95,14 @@ export default function ContactPage() {
               </div>
 
               <div className="mt-8 h-1 w-full rounded-full zambia-stripe" aria-hidden="true" />
+              </div>
             </div>
           </div>
         </div>
 
-        <div id="office-location" className="mt-10 rounded-3xl border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+        <div id="office-location" className="mt-10 overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
+          <div className="pointer-events-none h-1 w-full bg-[linear-gradient(90deg,var(--rma-green),var(--rma-blue),var(--rma-orange))] opacity-70" />
+          <div className="p-6 sm:p-8">
           <p className="text-base font-semibold text-[var(--rma-ink)]">Our office location</p>
           <p className="mt-2 text-sm leading-6 rma-muted">
             RMA is based in Kabulonga, Lusaka, supporting mining-sector partnerships and SME supplier development across Zambia.
@@ -94,6 +130,7 @@ export default function ContactPage() {
                 src="https://www.google.com/maps?q=RMA%20Office%2C%20Unit%203%20Katete%20Flats%20Off%20Roan%20Road%2C%20Kabulonga%2C%20Lusaka%2C%20Zambia&output=embed"
               />
             </div>
+          </div>
           </div>
         </div>
       </div>

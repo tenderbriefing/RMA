@@ -37,7 +37,8 @@ function LinkedInIcon() {
 function TeamCard({ m }: { m: TeamMember }) {
   const [imgOk, setImgOk] = useState(true);
   return (
-    <div className="group relative overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
+    <div className="group relative overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm transition will-change-transform hover:-translate-y-0.5 hover:shadow-md hover:border-black/15">
+      <div className="pointer-events-none h-1 w-full bg-[linear-gradient(90deg,var(--rma-green),var(--rma-blue),var(--rma-orange))] opacity-70" />
       <div className="absolute inset-0 bg-[radial-gradient(900px_circle_at_20%_0%,rgba(37,58,135,0.06),transparent_45%),radial-gradient(800px_circle_at_90%_20%,rgba(31,106,58,0.06),transparent_45%)] opacity-0 transition group-hover:opacity-100" />
 
       <div className="relative p-6">
@@ -66,7 +67,7 @@ function TeamCard({ m }: { m: TeamMember }) {
             <p className="truncate text-base font-semibold tracking-tight text-[var(--rma-ink)]">
               {m.name}
             </p>
-            <p className="mt-1 inline-flex items-center rounded-full bg-black/[.04] px-3 py-1 text-xs font-semibold text-black/60">
+            <p className="mt-1 inline-flex items-center rounded-full border border-black/10 bg-white/80 px-3 py-1 text-xs font-semibold text-black/60 shadow-sm">
               {m.role}
             </p>
           </div>
@@ -75,6 +76,13 @@ function TeamCard({ m }: { m: TeamMember }) {
         <p className="mt-4 text-sm leading-6 text-[color:var(--rma-muted)]">
           {m.bio}
         </p>
+
+        <div className="mt-5 flex items-center justify-between text-xs">
+          <span className="font-semibold text-black/45">View profile</span>
+          <span className="font-semibold text-[color:var(--rma-blue)] opacity-70 transition group-hover:opacity-100">
+            Open →
+          </span>
+        </div>
       </div>
     </div>
   );
@@ -106,7 +114,7 @@ export function TeamGridClient({ team }: { team: TeamMember[] }) {
             key={m.name}
             type="button"
             onClick={() => setOpenName(m.name)}
-            className="text-left"
+            className="text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-[color:var(--rma-blue)]/15 focus-visible:rounded-3xl"
             aria-haspopup="dialog"
             aria-controls={`${baseId}-team-dialog`}
           >
@@ -131,7 +139,10 @@ export function TeamGridClient({ team }: { team: TeamMember[] }) {
           />
 
           <div className="absolute left-1/2 top-1/2 w-[min(92vw,860px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-3xl border border-black/10 bg-white shadow-2xl">
-            <div className="flex items-center justify-between border-b border-black/10 px-6 py-5">
+            <div className="relative overflow-hidden border-b border-black/10 px-6 py-5">
+              <div className="pointer-events-none absolute inset-0 opacity-70 bg-[radial-gradient(900px_circle_at_15%_0%,rgba(37,58,135,0.08),transparent_45%),radial-gradient(800px_circle_at_90%_30%,rgba(31,106,58,0.08),transparent_45%)]" />
+              <div className="pointer-events-none absolute left-0 top-0 h-1 w-full bg-[linear-gradient(90deg,var(--rma-green),var(--rma-blue),var(--rma-orange))] opacity-70" />
+              <div className="relative flex items-center justify-between">
               <div className="min-w-0">
                 <p className="truncate text-lg font-semibold tracking-tight text-[var(--rma-ink)]">
                   {openMember.name}
@@ -158,6 +169,7 @@ export function TeamGridClient({ team }: { team: TeamMember[] }) {
                 >
                   <span aria-hidden="true">×</span>
                 </button>
+              </div>
               </div>
             </div>
 
