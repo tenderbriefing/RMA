@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export function EcosystemCircle() {
   const items = [
     { t: "Enterprise\nDevelopment", c: "var(--rma-green)" },
@@ -10,60 +8,102 @@ export function EcosystemCircle() {
     { t: "Digital SME\nEcosystem", c: "var(--rma-orange)" },
   ];
 
-  // Polar positions around a circle
-  const positions = [
-    // Tuned to avoid overlap at common breakpoints.
-    { x: 50, y: 6 },
-    { x: 86, y: 24 },
-    { x: 86, y: 66 },
-    { x: 50, y: 88 },
-    { x: 14, y: 66 },
-    { x: 14, y: 24 },
-  ];
+  // Fixed SVG geometry (viewBox 0..1000) prevents overlap at all sizes.
+  const nodeW = 270;
+  const nodeH = 140;
+  const cx = 500;
+  const cy = 500;
+  const r = 420;
+  const anglesDeg = [-90, -25, 35, 90, 145, 205];
+  const nodes = items.map((it, idx) => {
+    const a = (anglesDeg[idx]! * Math.PI) / 180;
+    const x = cx + r * Math.cos(a) - nodeW / 2;
+    const y = cy + r * Math.sin(a) - nodeH / 2;
+    return { ...it, x, y };
+  });
 
   return (
-    <div className="mx-auto w-full max-w-[720px]">
-      <div className="relative aspect-square w-full">
-        <div className="pointer-events-none absolute inset-0 rounded-full border border-black/10 bg-[radial-gradient(circle_at_50%_50%,rgba(31,106,58,0.10),transparent_55%),radial-gradient(circle_at_70%_30%,rgba(37,58,135,0.10),transparent_55%),radial-gradient(circle_at_40%_80%,rgba(240,116,43,0.08),transparent_60%)]" />
+    <div className="mx-auto w-full max-w-[860px]">
+      <svg
+        viewBox="0 0 1000 1000"
+        role="img"
+        aria-label="RMA ESD ecosystem: six service pillars around the RMA mark"
+        className="h-auto w-full"
+      >
+        <defs>
+          <radialGradient id="rma-bg" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stopColor="rgba(31,106,58,0.10)" />
+            <stop offset="60%" stopColor="rgba(31,106,58,0.00)" />
+          </radialGradient>
+          <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="8" stdDeviation="8" floodColor="rgba(0,0,0,0.10)" />
+          </filter>
+        </defs>
 
-        <div className="pointer-events-none absolute inset-12 rounded-full border border-black/10" />
-        <div className="pointer-events-none absolute inset-[104px] rounded-full border border-black/10" />
+        {/* background rings */}
+        <circle cx={cx} cy={cy} r="490" fill="white" stroke="rgba(0,0,0,0.10)" />
+        <circle cx={cx} cy={cy} r="420" fill="url(#rma-bg)" />
+        <circle cx={cx} cy={cy} r="360" fill="none" stroke="rgba(0,0,0,0.10)" />
+        <circle cx={cx} cy={cy} r="270" fill="none" stroke="rgba(0,0,0,0.10)" />
 
-        {/* center mark */}
-        <div className="absolute left-1/2 top-1/2 h-[152px] w-[152px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-black/10 bg-white/90 shadow-sm backdrop-blur">
-          <div className="relative h-full w-full">
-            <Image
-              src="/rma-mark.png"
-              alt="RMA"
-              fill
-              sizes="152px"
-              className="object-contain p-6"
-              priority={false}
+        {/* center card */}
+        <g filter="url(#softShadow)">
+          <rect
+            x={cx - 92}
+            y={cy - 92}
+            width="184"
+            height="184"
+            rx="32"
+            fill="rgba(255,255,255,0.92)"
+            stroke="rgba(0,0,0,0.10)"
+          />
+        </g>
+        <image
+          href="/rma-mark.png"
+          x={cx - 70}
+          y={cy - 70}
+          width="140"
+          height="140"
+          preserveAspectRatio="xMidYMid meet"
+        />
+
+        {/* nodes */}
+        {nodes.map((n) => (
+          <g key={n.t} filter="url(#softShadow)">
+            <rect
+              x={n.x}
+              y={n.y}
+              width={nodeW}
+              height={nodeH}
+              rx="34"
+              fill="rgba(255,255,255,0.96)"
+              stroke="rgba(0,0,0,0.10)"
             />
-          </div>
-        </div>
-
-        {items.map((it, idx) => {
-          const p = positions[idx]!;
-          return (
-            <div
-              key={it.t}
-              className="absolute -translate-x-1/2 -translate-y-1/2"
-              style={{ left: `${p.x}%`, top: `${p.y}%` }}
+            <rect
+              x={n.x + nodeW / 2 - 36}
+              y={n.y + 18}
+              width="72"
+              height="10"
+              rx="5"
+              fill={`color-mix(in srgb, ${n.c} 70%, white)`}
+            />
+            <text
+              x={n.x + nodeW / 2}
+              y={n.y + 66}
+              textAnchor="middle"
+              fontSize="22"
+              fontWeight="700"
+              fill="var(--rma-ink)"
             >
-              <div className="w-[168px] rounded-[26px] border border-black/10 bg-white/95 px-5 py-4 text-center shadow-sm backdrop-blur">
-                <div
-                  className="mx-auto mb-2 h-1.5 w-12 rounded-full"
-                  style={{ background: `color-mix(in srgb, ${it.c} 70%, white)` }}
-                />
-                <p className="whitespace-pre-line text-[13px] font-semibold leading-5 text-[var(--rma-ink)]">
-                  {it.t}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+              {n.t.split("\n").map((line, i) => (
+                <tspan key={line} x={n.x + nodeW / 2} dy={i === 0 ? 0 : 26}>
+                  {line}
+                </tspan>
+              ))}
+            </text>
+          </g>
+        ))}
+      </svg>
 
       <p className="mt-3 text-center text-xs rma-muted">
         Six pillars working together to build SME readiness and stronger local supply chains.
