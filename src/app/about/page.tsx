@@ -11,14 +11,15 @@ export default function AboutPage() {
       <div className="relative overflow-hidden border-b border-black/5 bg-white">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(900px_circle_at_18%_20%,rgba(31,106,58,0.10),transparent_55%),radial-gradient(900px_circle_at_78%_30%,rgba(37,58,135,0.08),transparent_55%),radial-gradient(900px_circle_at_55%_90%,rgba(240,116,43,0.06),transparent_55%)]" />
-          <div className="absolute right-[-120px] top-[-120px] h-[520px] w-[520px] opacity-[0.06] sm:h-[640px] sm:w-[640px] sm:opacity-[0.055]">
+          <div className="absolute inset-0 flex items-center justify-center">
             <Image
-              src="/rma-logo-transparent.png"
+              src="/rma-mark.png"
               alt=""
               aria-hidden="true"
-              fill
-              sizes="(min-width: 640px) 640px, 520px"
-              className="object-contain"
+              width={520}
+              height={520}
+              sizes="520px"
+              className="h-[360px] w-[360px] object-contain opacity-[0.07] sm:h-[460px] sm:w-[460px] sm:opacity-[0.06]"
               priority
             />
           </div>
@@ -32,16 +33,16 @@ export default function AboutPage() {
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-6xl">
               Bridging opportunity and enterprise readiness across Africa.
             </h1>
-            <p className="mt-6 text-lg leading-8 text-black/70 sm:text-xl">
+            <p className="mt-5 text-base leading-7 text-black/70 sm:text-lg">
               Resilient Markets Africa (RMA) helps SMEs become compliant, finance‑ready, and buyer‑ready—so they can participate competitively in major supply chains.
             </p>
-            <p className="mt-6 text-base leading-7 rma-muted sm:text-lg">
+            <p className="mt-4 text-sm leading-6 rma-muted sm:text-base">
               Across the continent, many SMEs have the ambition, local knowledge, and commercial potential to supply large industries—yet often lack structured support, finance readiness, compliance systems, market information, and buyer linkages.
             </p>
-            <p className="mt-4 text-base leading-7 rma-muted sm:text-lg">
+            <p className="mt-3 text-sm leading-6 rma-muted sm:text-base">
               RMA addresses this gap by designing and implementing practical enterprise development, supplier development, and market access programmes that prepare SMEs to compete, grow, and integrate into high‑value supply chains.
             </p>
-            <p className="mt-4 text-sm leading-6 rma-muted sm:text-base">
+            <p className="mt-3 text-sm leading-6 rma-muted sm:text-base">
               Our work focuses on sectors where local enterprise participation can unlock meaningful economic transformation, including mining, manufacturing, logistics, construction, energy, agro‑processing, and digital services.
             </p>
 
