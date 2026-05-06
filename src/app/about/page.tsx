@@ -1,5 +1,6 @@
-import { AnchorNav } from "@/components/AnchorNav";
 import Image from "next/image";
+import Link from "next/link";
+import { AboutAccordionClient } from "@/app/about/AboutAccordionClient";
 
 export const metadata = {
   title: "About",
@@ -19,191 +20,55 @@ export default function AboutPage() {
               width={520}
               height={520}
               sizes="520px"
-              className="h-[360px] w-[360px] object-contain opacity-[0.07] sm:h-[460px] sm:w-[460px] sm:opacity-[0.06]"
+              className="h-[360px] w-[360px] object-contain opacity-[0.06] sm:h-[460px] sm:w-[460px] sm:opacity-[0.05]"
               priority
             />
           </div>
         </div>
 
-        <div className="rma-container-wide relative py-14 sm:py-18">
-          <div className="max-w-4xl">
-            <p className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-4 py-2 text-xs font-semibold text-black/70 backdrop-blur">
-              Who We Are
-            </p>
-            <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-6xl">
+        <div className="rma-container-wide relative py-12 sm:py-14">
+          <div className="max-w-5xl">
+            <h1 className="mt-6 text-3xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-5xl">
               Bridging opportunity and enterprise readiness across Africa.
             </h1>
-            <p className="mt-5 text-base leading-7 text-black/70 sm:text-lg">
-              Resilient Markets Africa (RMA) helps SMEs become compliant, finance‑ready, and buyer‑ready—so they can participate competitively in major supply chains.
-            </p>
-            <p className="mt-4 text-sm leading-6 rma-muted sm:text-base">
-              Across the continent, many SMEs have the ambition, local knowledge, and commercial potential to supply large industries—yet often lack structured support, finance readiness, compliance systems, market information, and buyer linkages.
-            </p>
-            <p className="mt-3 text-sm leading-6 rma-muted sm:text-base">
-              RMA addresses this gap by designing and implementing practical enterprise development, supplier development, and market access programmes that prepare SMEs to compete, grow, and integrate into high‑value supply chains.
-            </p>
-            <p className="mt-3 text-sm leading-6 rma-muted sm:text-base">
-              Our work focuses on sectors where local enterprise participation can unlock meaningful economic transformation, including mining, manufacturing, logistics, construction, energy, agro‑processing, and digital services.
+            <p className="mt-4 max-w-3xl text-base leading-7 text-black/70 sm:text-lg">
+              RMA helps SMEs become compliant, finance‑ready, and buyer‑ready—so they can participate
+              competitively in major supply chains.
             </p>
 
-            <div className="mt-10 flex flex-wrap gap-2 text-xs font-semibold">
+            <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {[
-                "Enterprise development",
-                "Supplier readiness",
-                "Finance-readiness",
-                "Market linkages",
-                "Digital SME ecosystems",
-              ].map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full border border-black/10 bg-white/80 px-3 py-1 rma-muted"
+                { t: "Compliance & readiness", b: "Practical support aligned to buyer standards." },
+                { t: "Finance readiness", b: "Better documentation and funding preparation." },
+                { t: "Market linkages", b: "Closer connection to procurement opportunities." },
+              ].map((x) => (
+                <div
+                  key={x.t}
+                  className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white/80 p-4 backdrop-blur"
                 >
-                  {t}
-                </span>
+                  <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100 bg-[radial-gradient(900px_circle_at_20%_0%,rgba(37,58,135,0.10),transparent_45%),radial-gradient(800px_circle_at_90%_20%,rgba(31,106,58,0.10),transparent_45%)]" />
+                  <div className="pointer-events-none absolute left-0 top-0 h-full w-1 bg-[linear-gradient(180deg,var(--rma-green),var(--rma-blue),var(--rma-orange))] opacity-70" />
+                  <div className="relative">
+                  <p className="text-sm font-semibold text-[var(--rma-ink)]">{x.t}</p>
+                  <p className="mt-1 text-sm leading-6 rma-muted">{x.b}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="rma-container-wide py-12">
-        <div className="grid gap-8 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-10">
-          <aside>
-            <AnchorNav
-              items={[
-                { href: "#purpose", label: "Our Purpose" },
-                { href: "#mission-vision", label: "Mission & Vision" },
-                { href: "#different", label: "What makes RMA different" },
-                { href: "#focus-areas", label: "Strategic focus areas" },
-              ]}
-            />
-          </aside>
-
-          <div className="space-y-10">
-            <section id="purpose" className="border-b border-black/10 pb-10">
-              <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
-                Our Purpose
-              </p>
-              <p className="mt-3 text-2xl font-semibold tracking-tight text-[var(--rma-ink)]">
-                Build resilient African enterprises.
-              </p>
-              <p className="mt-4 text-sm leading-6 rma-muted">
-                Our purpose is to build resilient African enterprises that can compete, access finance, create jobs, and supply the industries driving Africa’s economic future.
-              </p>
-              <p className="mt-3 text-sm leading-6 rma-muted">
-                We believe enterprise development must move beyond training alone. SMEs need practical support, structured diagnostics, finance readiness, procurement alignment, mentorship, and direct connection to real commercial opportunities.
-              </p>
-            </section>
-
-            <section id="mission-vision" className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl border border-black/10 bg-white p-6 sm:p-8">
-                <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
-                  Our Mission
-                </p>
-                <p className="mt-3 text-base font-semibold text-[var(--rma-ink)]">
-                  To strengthen African SMEs through enterprise development, supplier readiness, access-to-finance preparation, and market linkages that enable inclusive economic growth and resilient local supply chains.
-                </p>
-              </div>
-              <div className="rounded-3xl border border-black/10 bg-white p-6 sm:p-8">
-                <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
-                  Our Vision
-                </p>
-                <p className="mt-3 text-base font-semibold text-[var(--rma-ink)]">
-                  To become a leading Pan-African enterprise development and supplier ecosystem partner, enabling SMEs across the continent to participate competitively in high-value markets and strategic industry supply chains.
-                </p>
-              </div>
-            </section>
-
-            <section id="different" className="rounded-3xl border border-black/10 bg-white p-6 sm:p-8">
-              <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
-                What makes RMA different
-              </p>
-              <div className="mt-6 grid gap-4">
-                {[
-                  {
-                    t: "Practical, not theoretical",
-                    b: "Implementable solutions that improve compliance, operations, financial discipline, and procurement readiness.",
-                  },
-                  {
-                    t: "Value-chain driven",
-                    b: "Designed around real buyer needs, anchor industries, and procurement opportunities.",
-                  },
-                  {
-                    t: "Finance-readiness focused",
-                    b: "Preparation for bank funding, supplier finance, purchase order finance, working capital, and growth capital.",
-                  },
-                  {
-                    t: "Technology-enabled",
-                    b: "Digital tools for onboarding, diagnostics, monitoring, impact tracking, and programme reporting.",
-                  },
-                  {
-                    t: "Partnership-led",
-                    b: "Collaboration with mining houses, banks, DFIs, corporates, government, and development institutions.",
-                  },
-                  {
-                    t: "Pan-African perspective",
-                    b: "Built for African markets and the realities of doing business across the continent.",
-                  },
-                ].map((x) => (
-                  <div key={x.t} className="flex gap-4 rounded-2xl border border-black/10 bg-white p-5">
-                    <span
-                      className="mt-2 h-2 w-2 flex-none rounded-full bg-[color:var(--rma-orange)]"
-                      aria-hidden="true"
-                    />
-                    <div>
-                      <p className="text-sm font-semibold text-[var(--rma-ink)]">
-                        {x.t}
-                      </p>
-                      <p className="mt-1 text-sm leading-6 rma-muted">{x.b}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section id="focus-areas">
-              <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
-                Our Strategic Focus Areas
-              </p>
-              <p className="mt-3 text-2xl font-semibold tracking-tight text-[var(--rma-ink)]">
-                Designed for outcomes across the SME journey.
-              </p>
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                {[
-                  {
-                    t: "Enterprise Development",
-                    b: "Building SME capability through business support, mentorship, training, governance improvement, and operational strengthening.",
-                  },
-                  {
-                    t: "Supplier Development",
-                    b: "Preparing SMEs to supply mining houses, corporates, public-sector buyers, and large contractors.",
-                  },
-                  {
-                    t: "Access to Finance",
-                    b: "Helping SMEs improve funding readiness through financial records, compliance documents, business plans, cash-flow discipline, and lender preparation.",
-                  },
-                  {
-                    t: "Market Linkages",
-                    b: "Connecting SMEs to procurement opportunities, anchor buyers, supply chains, and cross-border markets.",
-                  },
-                  {
-                    t: "Local Content Development",
-                    b: "Supporting inclusive procurement strategies that increase local supplier participation in strategic sectors.",
-                  },
-                  {
-                    t: "Digital SME Ecosystems",
-                    b: "Using technology to improve onboarding, diagnostics, programme management, impact tracking, and reporting.",
-                  },
-                ].map((x) => (
-                  <div key={x.t} className="rma-card rma-card-interactive p-6">
-                    <p className="text-base font-semibold text-[var(--rma-ink)]">
-                      {x.t}
-                    </p>
-                    <p className="mt-2 text-sm leading-6 rma-muted">{x.b}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
+      <div className="rma-container-wide pb-14">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+            Explore
+          </p>
+          <p className="mt-2 text-sm leading-6 rma-muted">
+            Click to expand. We keep this page short by default.
+          </p>
+          <div className="mt-4">
+            <AboutAccordionClient />
           </div>
         </div>
       </div>
