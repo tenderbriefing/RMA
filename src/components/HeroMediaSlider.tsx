@@ -6,15 +6,16 @@ import { useEffect, useMemo, useState } from "react";
 
 type Slide = {
   key: string;
-  imageSrc: string;
+  imageSrc?: string;
   alt: string;
   eyebrow: string;
   title: string;
-  subtitle: string;
+  subtitle: string | React.ReactNode;
   fallbackGradient: string;
+  durationMs?: number;
 };
 
-const SLIDE_INTERVAL_MS = 5000;
+const DEFAULT_SLIDE_DURATION_MS = 5000;
 
 const slides: Slide[] = [
   {
@@ -83,6 +84,25 @@ const slides: Slide[] = [
     fallbackGradient:
       "radial-gradient(900px circle at 15% 25%, rgba(37,58,135,0.20), transparent 45%), radial-gradient(900px circle at 85% 35%, rgba(240,116,43,0.14), transparent 45%), linear-gradient(135deg, rgba(10,18,35,0.9), rgba(10,18,35,0.6))",
   },
+  {
+    key: "ecosystem",
+    alt: "RMA enterprise development and supplier ecosystem partner overview.",
+    eyebrow: "Across Africa",
+    title: "Enterprise Development & Supplier Ecosystem Partner",
+    subtitle: (
+      <span className="space-y-4">
+        <span className="block">
+          Resilient Markets Africa is an enterprise development and supplier ecosystem partner helping African SMEs become compliant, bankable, procurement-ready, and connected to real market opportunities.
+        </span>
+        <span className="block">
+          We work with mining companies, financial institutions, development partners, corporates, and public-sector institutions to build stronger local supply chains and unlock inclusive economic growth across Africa.
+        </span>
+      </span>
+    ),
+    fallbackGradient:
+      "radial-gradient(900px circle at 20% 15%, rgba(31,106,58,0.22), transparent 45%), radial-gradient(900px circle at 75% 30%, rgba(37,58,135,0.18), transparent 45%), radial-gradient(900px circle at 60% 85%, rgba(240,116,43,0.12), transparent 45%), linear-gradient(135deg, rgba(10,18,35,0.95), rgba(10,18,35,0.65))",
+    durationMs: DEFAULT_SLIDE_DURATION_MS * 2,
+  },
 ];
 
 function useReducedMotion() {
@@ -98,16 +118,17 @@ export function HeroMediaSlider() {
   const reducedMotion = useReducedMotion();
   const [active, setActive] = useState(0);
   const [missing, setMissing] = useState<Record<string, boolean>>({});
-  const [progressKey, setProgressKey] = useState(0);
+  const [tick, setTick] = useState(0);
 
   useEffect(() => {
     if (reducedMotion) return;
-    const t = window.setInterval(() => {
+    const duration = slides[active]?.durationMs ?? DEFAULT_SLIDE_DURATION_MS;
+    const t = window.setTimeout(() => {
       setActive((i) => (i + 1) % slides.length);
-      setProgressKey((k) => k + 1);
-    }, SLIDE_INTERVAL_MS);
-    return () => window.clearInterval(t);
-  }, [reducedMotion]);
+      setTick((k) => k + 1);
+    }, duration);
+    return () => window.clearTimeout(t);
+  }, [active, reducedMotion, tick]);
 
   const current = slides[active]!;
 
@@ -118,7 +139,7 @@ export function HeroMediaSlider() {
     >
       <div className="relative h-[520px] sm:h-[560px] lg:h-[680px]">
         <div className="pointer-events-none absolute inset-0">
-          {!missing[current.key] ? (
+          {current.imageSrc && !missing[current.key] ? (
             <div className="absolute inset-0">
               <div className="absolute inset-0 motion-safe:animate-[heroKenBurns_12s_ease-in-out_infinite_alternate]" />
               <Image
@@ -156,9 +177,9 @@ export function HeroMediaSlider() {
                 {current.title}
               </h1>
 
-              <p className="mt-6 text-base leading-7 text-white/85 sm:text-lg">
+              <div className="mt-6 text-base leading-7 text-white/85 sm:text-lg">
                 {current.subtitle}
-              </p>
+              </div>
 
               <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row">
                 <Link href="/register" className="rma-btn rma-btn-primary">
@@ -167,18 +188,6 @@ export function HeroMediaSlider() {
                 <Link href="/contact" className="rma-btn rma-btn-secondary">
                   Partner With RMA
                 </Link>
-              </div>
-
-              <div className="mt-10 h-1.5 w-full overflow-hidden rounded-full bg-white/15">
-                <div
-                  key={progressKey}
-                  className={[
-                    "h-full w-full origin-left bg-white/75",
-                    reducedMotion
-                      ? "scale-x-100"
-                      : "motion-safe:animate-[heroProgress_5s_linear_forwards]",
-                  ].join(" ")}
-                />
               </div>
 
               <div className="mt-5 flex items-center gap-2">
@@ -190,7 +199,7 @@ export function HeroMediaSlider() {
                     aria-current={i === active}
                     onClick={() => {
                       setActive(i);
-                      setProgressKey((k) => k + 1);
+                      setTick((k) => k + 1);
                     }}
                     className={[
                       "h-2.5 w-2.5 rounded-full transition focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60",
@@ -207,7 +216,7 @@ export function HeroMediaSlider() {
                 aria-label="Previous slide"
                 onClick={() => {
                   setActive((i) => (i - 1 + slides.length) % slides.length);
-                  setProgressKey((k) => k + 1);
+                  setTick((k) => k + 1);
                 }}
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
               >
@@ -218,7 +227,7 @@ export function HeroMediaSlider() {
                 aria-label="Next slide"
                 onClick={() => {
                   setActive((i) => (i + 1) % slides.length);
-                  setProgressKey((k) => k + 1);
+                  setTick((k) => k + 1);
                 }}
                 className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white backdrop-blur transition hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
               >
@@ -230,14 +239,6 @@ export function HeroMediaSlider() {
       </div>
 
       <style jsx global>{`
-        @keyframes heroProgress {
-          from {
-            transform: scaleX(0);
-          }
-          to {
-            transform: scaleX(1);
-          }
-        }
         @keyframes heroKenBurns {
           from {
             transform: scale(1);

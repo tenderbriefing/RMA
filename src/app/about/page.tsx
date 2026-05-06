@@ -1,5 +1,5 @@
-import { Section } from "@/components/Section";
 import { AnchorNav } from "@/components/AnchorNav";
+import Image from "next/image";
 
 export const metadata = {
   title: "About",
@@ -8,143 +8,201 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main>
-      <Section
-        eyebrow="About Resilient Markets Africa"
-        title="An implementation partner for mining local content and supplier development."
-        description="RMA is a Zambia-focused mining-sector local-content and supplier-development platform helping Zambian SMEs become finance-ready and contract-ready suppliers to the mining value chain—while supporting mining companies with practical implementation tools, verification workflows, and measurable reporting outcomes."
-      >
+      <div className="relative overflow-hidden border-b border-black/5 bg-white">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(900px_circle_at_18%_20%,rgba(31,106,58,0.10),transparent_55%),radial-gradient(900px_circle_at_78%_30%,rgba(37,58,135,0.08),transparent_55%),radial-gradient(900px_circle_at_55%_90%,rgba(240,116,43,0.06),transparent_55%)]" />
+          <div className="absolute right-[-120px] top-[-120px] h-[520px] w-[520px] opacity-[0.06] sm:h-[640px] sm:w-[640px] sm:opacity-[0.055]">
+            <Image
+              src="/rma-logo-transparent.png"
+              alt=""
+              aria-hidden="true"
+              fill
+              sizes="(min-width: 640px) 640px, 520px"
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+
+        <div className="rma-container-wide relative py-14 sm:py-18">
+          <div className="max-w-4xl">
+            <p className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/80 px-4 py-2 text-xs font-semibold text-black/70 backdrop-blur">
+              Who We Are
+            </p>
+            <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-6xl">
+              Resilient Markets Africa exists to bridge the gap between opportunity and enterprise readiness.
+            </h1>
+            <p className="mt-6 text-base leading-7 rma-muted sm:text-lg">
+              Across Africa, many SMEs have the ambition, local knowledge, and commercial potential to supply major industries, but they often lack access to structured support, finance readiness, compliance systems, market information, and buyer linkages.
+            </p>
+            <p className="mt-4 text-base leading-7 rma-muted sm:text-lg">
+              RMA addresses this gap by designing and implementing practical enterprise development, supplier development, and market access programmes that prepare SMEs to compete, grow, and integrate into high-value supply chains.
+            </p>
+            <p className="mt-4 text-sm leading-6 rma-muted">
+              Our work is especially focused on sectors where local enterprise participation can unlock meaningful economic transformation, including mining, manufacturing, logistics, construction, energy, agro-processing, and digital services.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-2 text-xs font-semibold">
+              {[
+                "Enterprise development",
+                "Supplier readiness",
+                "Finance-readiness",
+                "Market linkages",
+                "Digital SME ecosystems",
+              ].map((t) => (
+                <span
+                  key={t}
+                  className="rounded-full border border-black/10 bg-white/80 px-3 py-1 rma-muted"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="rma-container-wide py-12">
         <div className="grid gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <AnchorNav
               items={[
-                { href: "#overview", label: "Overview" },
-                { href: "#what-we-do", label: "What we do" },
-                { href: "#why-rma", label: "Why RMA" },
-                { href: "#finance-execution", label: "Finance & execution support" },
+                { href: "#purpose", label: "Our Purpose" },
+                { href: "#mission-vision", label: "Mission & Vision" },
+                { href: "#different", label: "What makes RMA different" },
+                { href: "#focus-areas", label: "Strategic focus areas" },
               ]}
             />
           </div>
 
-          <div className="space-y-8 lg:col-span-8">
-            <section id="overview" className="rma-card p-6">
-              <p className="text-sm font-semibold text-[var(--rma-ink)]">
-                Overview
+          <div className="space-y-10 lg:col-span-8">
+            <section id="purpose" className="border-b border-black/10 pb-10">
+              <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                Our Purpose
               </p>
-              <p className="mt-2 text-sm leading-6 rma-muted">
-                We support mining houses, EPCs, and contractors to operationalise local procurement and supplier development through verified SME pipelines, readiness programmes, and monitoring designed to support local-content reporting outcomes.
+              <p className="mt-3 text-2xl font-semibold tracking-tight text-[var(--rma-ink)]">
+                Build resilient African enterprises.
               </p>
-              <p className="mt-3 text-xs leading-5 rma-muted">
-                Note: RMA provides implementation support and programme delivery services and does not provide legal advice.
+              <p className="mt-4 text-sm leading-6 rma-muted">
+                Our purpose is to build resilient African enterprises that can compete, access finance, create jobs, and supply the industries driving Africa’s economic future.
+              </p>
+              <p className="mt-3 text-sm leading-6 rma-muted">
+                We believe enterprise development must move beyond training alone. SMEs need practical support, structured diagnostics, finance readiness, procurement alignment, mentorship, and direct connection to real commercial opportunities.
               </p>
             </section>
 
-            <section id="what-we-do" className="rma-card p-6">
-              <p className="text-sm font-semibold text-[var(--rma-ink)]">
-                What we do
+            <section id="mission-vision" className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-3xl border border-black/10 bg-white p-6 sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                  Our Mission
+                </p>
+                <p className="mt-3 text-base font-semibold text-[var(--rma-ink)]">
+                  To strengthen African SMEs through enterprise development, supplier readiness, access-to-finance preparation, and market linkages that enable inclusive economic growth and resilient local supply chains.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-black/10 bg-white p-6 sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                  Our Vision
+                </p>
+                <p className="mt-3 text-base font-semibold text-[var(--rma-ink)]">
+                  To become a leading Pan-African enterprise development and supplier ecosystem partner, enabling SMEs across the continent to participate competitively in high-value markets and strategic industry supply chains.
+                </p>
+              </div>
+            </section>
+
+            <section id="different" className="rounded-3xl border border-black/10 bg-white p-6 sm:p-8">
+              <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                What makes RMA different
               </p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <div className="mt-6 grid gap-4">
                 {[
                   {
-                    title: "Mining SME registration & KYC",
-                    body: "A structured registration and KYC workflow designed to build a trusted supplier pipeline for mining goods and services categories.",
+                    t: "Practical, not theoretical",
+                    b: "Implementable solutions that improve compliance, operations, financial discipline, and procurement readiness.",
                   },
                   {
-                    title: "Supplier verification & readiness screening",
-                    body: "Diagnostics aligned with mining buyer expectations—governance, compliance, operational capacity, HSE/site readiness, and execution planning.",
+                    t: "Value-chain driven",
+                    b: "Designed around real buyer needs, anchor industries, and procurement opportunities.",
                   },
                   {
-                    title: "Supplier development & training",
-                    body: "Readiness programmes that strengthen delivery capability, documentation discipline, and performance signals required for procurement.",
+                    t: "Finance-readiness focused",
+                    b: "Preparation for bank funding, supplier finance, purchase order finance, working capital, and growth capital.",
                   },
                   {
-                    title: "Monitoring, reporting & transparency",
-                    body: "Dashboards and exports designed to support supplier development tracking and local-content reporting outcomes.",
+                    t: "Technology-enabled",
+                    b: "Digital tools for onboarding, diagnostics, monitoring, impact tracking, and programme reporting.",
                   },
-                ].map((item) => (
-                  <div key={item.title} className="rounded-2xl border border-black/10 bg-white p-5">
-                    <p className="text-sm font-semibold text-[var(--rma-ink)]">
-                      {item.title}
-                    </p>
-                    <p className="mt-2 text-sm leading-6 rma-muted">
-                      {item.body}
-                    </p>
+                  {
+                    t: "Partnership-led",
+                    b: "Collaboration with mining houses, banks, DFIs, corporates, government, and development institutions.",
+                  },
+                  {
+                    t: "Pan-African perspective",
+                    b: "Built for African markets and the realities of doing business across the continent.",
+                  },
+                ].map((x) => (
+                  <div key={x.t} className="flex gap-4 rounded-2xl border border-black/10 bg-white p-5">
+                    <span
+                      className="mt-2 h-2 w-2 flex-none rounded-full bg-[color:var(--rma-orange)]"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <p className="text-sm font-semibold text-[var(--rma-ink)]">
+                        {x.t}
+                      </p>
+                      <p className="mt-1 text-sm leading-6 rma-muted">{x.b}</p>
+                    </div>
                   </div>
                 ))}
               </div>
             </section>
 
-            <section id="why-rma" className="rma-card p-6">
-              <p className="text-sm font-semibold text-[var(--rma-ink)]">
-                Why RMA
+            <section id="focus-areas">
+              <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                Our Strategic Focus Areas
               </p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              <p className="mt-3 text-2xl font-semibold tracking-tight text-[var(--rma-ink)]">
+                Designed for outcomes across the SME journey.
+              </p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 {[
                   {
-                    title: "Mining supplier development delivery",
-                    body: "Readiness assessment, training, and mentorship designed for procurement and contract execution needs.",
+                    t: "Enterprise Development",
+                    b: "Building SME capability through business support, mentorship, training, governance improvement, and operational strengthening.",
                   },
                   {
-                    title: "Regulatory alignment",
-                    body: "Aligned to Zambia’s mining local-content direction, including SI 68 of 2025 and related reforms impacting procurement and supplier development.",
+                    t: "Supplier Development",
+                    b: "Preparing SMEs to supply mining houses, corporates, public-sector buyers, and large contractors.",
                   },
                   {
-                    title: "Verification + pipeline building",
-                    body: "KYC and profiling to build a verified supplier pipeline by category, capability, and readiness signals.",
+                    t: "Access to Finance",
+                    b: "Helping SMEs improve funding readiness through financial records, compliance documents, business plans, cash-flow discipline, and lender preparation.",
                   },
                   {
-                    title: "Reporting outcomes",
-                    body: "Practical monitoring and reporting outputs designed to support implementation accountability and transparency.",
+                    t: "Market Linkages",
+                    b: "Connecting SMEs to procurement opportunities, anchor buyers, supply chains, and cross-border markets.",
                   },
-                ].map((item) => (
-                  <div key={item.title} className="rounded-2xl border border-black/10 bg-white p-5">
-                    <p className="text-sm font-semibold text-[var(--rma-ink)]">
-                      {item.title}
+                  {
+                    t: "Local Content Development",
+                    b: "Supporting inclusive procurement strategies that increase local supplier participation in strategic sectors.",
+                  },
+                  {
+                    t: "Digital SME Ecosystems",
+                    b: "Using technology to improve onboarding, diagnostics, programme management, impact tracking, and reporting.",
+                  },
+                ].map((x) => (
+                  <div key={x.t} className="rma-card rma-card-interactive p-6">
+                    <p className="text-base font-semibold text-[var(--rma-ink)]">
+                      {x.t}
                     </p>
-                    <p className="mt-2 text-sm leading-6 rma-muted">
-                      {item.body}
-                    </p>
+                    <p className="mt-2 text-sm leading-6 rma-muted">{x.b}</p>
                   </div>
                 ))}
-              </div>
-            </section>
-
-            <section id="finance-execution" className="rma-card p-6">
-              <p className="text-sm font-semibold text-[var(--rma-ink)]">
-                Mining SME Contract Finance & Execution Support
-              </p>
-              <p className="mt-2 text-sm leading-6 rma-muted">
-                RMA does not only help SMEs become visible to mining companies; it helps them become capable of delivering. Through finance-readiness support and contract execution monitoring, RMA strengthens the bridge between mining procurement, SME suppliers, and finance partners.
-              </p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-2xl border border-black/10 bg-white p-4">
-                  <p className="text-sm font-semibold text-[var(--rma-ink)]">
-                    For mining companies
-                  </p>
-                  <p className="mt-2 text-sm leading-6 rma-muted">
-                    Reduced supplier failure risk and more credible local procurement outcomes.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-black/10 bg-white p-4">
-                  <p className="text-sm font-semibold text-[var(--rma-ink)]">
-                    For banks & DFIs
-                  </p>
-                  <p className="mt-2 text-sm leading-6 rma-muted">
-                    A screened pipeline with verified demand, structured funding needs, and monitored execution support.
-                  </p>
-                </div>
-                <div className="rounded-2xl border border-black/10 bg-white p-4">
-                  <p className="text-sm font-semibold text-[var(--rma-ink)]">
-                    For SMEs
-                  </p>
-                  <p className="mt-2 text-sm leading-6 rma-muted">
-                    Funding readiness and referral preparation are subject to eligibility and do not guarantee approval.
-                  </p>
-                </div>
               </div>
             </section>
           </div>
         </div>
-      </Section>
+      </div>
     </main>
   );
 }
