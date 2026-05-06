@@ -1,84 +1,67 @@
 import Link from "next/link";
 import { Section } from "@/components/Section";
+import { EcosystemCircle } from "@/components/EcosystemCircle";
+import { ServicesAccordionClient } from "@/app/services/ServicesAccordionClient";
 
 export const metadata = {
   title: "Services",
 };
-
-const services = [
-  {
-    title: "Mining SME Registration & KYC",
-    body: "Structured registration and KYC profiling designed to build a trusted pipeline of Zambian suppliers for mining-sector opportunities.",
-  },
-  {
-    title: "Supplier Verification & Readiness Screening",
-    body: "Readiness screening aligned to mining procurement expectations—governance, compliance, operational capacity, and delivery planning.",
-  },
-  {
-    title: "Mining Supplier Database for Mining Houses",
-    body: "A verified supplier database designed to support local procurement workflows, supplier discovery, and supplier-development programme delivery.",
-  },
-  {
-    title: "Local-Content Implementation Support",
-    body: "Practical implementation support to help mining companies operationalise local-content procurement and supplier-development outcomes (not legal advice).",
-  },
-  {
-    title: "Supplier Development & Training",
-    body: "Workshops and mentorship covering procurement readiness, compliance, finance-readiness, performance discipline, and contract execution capability.",
-  },
-  {
-    title: "HSE & Site-Readiness Preparation",
-    body: "Preparation support aligned to site access expectations and safety discipline required for mining environments.",
-  },
-  {
-    title: "Mining Procurement Training",
-    body: "RFQs, tender response quality, documentation discipline, pricing fundamentals, and delivery expectations for mining supply chains.",
-  },
-  {
-    title: "Mining SME Contract Finance & Execution Support",
-    body: "Funding readiness and referral preparation for purchase order finance, invoice finance, working capital, asset finance, trade finance, and contract execution support—subject to finance partner assessment (no guaranteed funding).",
-  },
-  {
-    title: "Contract Delivery Mentorship",
-    body: "Post-award delivery mentorship focused on planning, delivery monitoring, invoice discipline, and performance reporting.",
-  },
-  {
-    title: "Compliance & Impact Reporting Dashboard",
-    body: "Dashboards and exports designed to support programme monitoring and local-content reporting outcomes with transparency and measurable KPIs.",
-  },
-];
 
 export default function ServicesPage() {
   return (
     <main>
       <Section
         eyebrow="Services"
-        title="Implementation support for mining local content and supplier development."
-        description="RMA supports mining companies, SMEs, and finance partners with practical tools, verified supplier pipeline building, training delivery, finance-readiness preparation, and reporting outputs."
+        title="Practical enterprise development and supplier ecosystem services."
+        description="Resilient Markets Africa provides practical enterprise development, supplier development, access-to-finance, and market linkage services designed to help African SMEs become compliant, bankable, competitive, and connected to real commercial opportunities."
       >
-        <div className="grid gap-4 sm:grid-cols-2">
-          {services.map((s) => (
-            <div key={s.title} className="rma-card p-6">
-              <p className="text-base font-semibold text-[var(--rma-ink)]">
-                {s.title}
-              </p>
-              <p className="mt-2 text-sm leading-6 rma-muted">{s.body}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-8 rounded-3xl border border-black/10 bg-white p-6">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="space-y-8">
+          <div className="rma-card p-6 sm:p-8">
             <p className="text-sm leading-6 rma-muted">
-              Want to register your SME or discuss a mining supplier pipeline partnership?
+              We work with SMEs, mining houses, corporates, banks, development finance institutions,
+              government agencies, and development partners to build stronger local supplier ecosystems
+              and unlock inclusive economic growth across Africa.
             </p>
-            <div className="flex flex-col gap-2 sm:flex-row">
-              <Link href="/register" className="rma-btn rma-btn-primary">
-                Register SME
-              </Link>
-              <Link href="/contact" className="rma-btn rma-btn-secondary">
-                Partner With RMA
-              </Link>
+            <p className="mt-3 text-sm leading-6 rma-muted">
+              Our services are structured around <span className="font-semibold text-[var(--rma-ink)]">six core pillars</span>.
+            </p>
+          </div>
+
+          <div className="grid items-center gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-6">
+              <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+                The ESD ecosystem
+              </p>
+              <p className="mt-3 text-2xl font-semibold tracking-tight text-[var(--rma-ink)]">
+                Six pillars that move SMEs from readiness to real opportunity.
+              </p>
+              <p className="mt-4 text-sm leading-6 rma-muted">
+                RMA’s model is designed to create value for the whole ecosystem: stronger SMEs, more reliable suppliers,
+                better funding pipelines, inclusive procurement, and resilient local economies.
+              </p>
+              <div className="mt-6 flex flex-col gap-2 sm:flex-row">
+                <Link href="/register" className="rma-btn rma-btn-primary">
+                  Register SME
+                </Link>
+                <Link href="/contact" className="rma-btn rma-btn-secondary">
+                  Contact RMA
+                </Link>
+              </div>
+            </div>
+            <div className="lg:col-span-6">
+              <EcosystemCircle />
+            </div>
+          </div>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+              Explore the pillars
+            </p>
+            <p className="mt-2 text-sm leading-6 rma-muted">
+              Click to expand each pillar. Nothing is shown unless opened.
+            </p>
+            <div className="mt-4">
+              <ServicesAccordionClient />
             </div>
           </div>
         </div>
