@@ -30,7 +30,7 @@ export default async function KycPage() {
         </div>
 
         <div className="mt-10 rma-card p-6 sm:p-8">
-          <KycFormClient initial={initial} />
+          <KycFormClient initial={initial} redirectTo="/dashboard" />
         </div>
       </div>
     </main>

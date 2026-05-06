@@ -1,10 +1,10 @@
 import { KycSchemaWithFinanceRules } from "@/lib/kyc";
 import { getAdminDb } from "@/lib/firebaseAdmin";
-import { requireUser } from "@/lib/authServer";
+import { getCurrentUser } from "@/lib/authServer";
 
 export async function POST(request: Request) {
   try {
-    const user = await requireUser();
+    const user = await getCurrentUser();
     const body = await request.json();
     const parsed = KycSchemaWithFinanceRules.safeParse(body);
     if (!parsed.success) {
@@ -15,24 +15,25 @@ export async function POST(request: Request) {
     }
 
     const db = getAdminDb();
-    const ref = db.collection("smes").doc(user.uid);
-    const snap = await ref.get();
+    const ref = user ? db.collection("smes").doc(user.uid) : db.collection("smes").doc();
+    const snap = user ? await ref.get() : null;
 
     const now = new Date().toISOString();
-    const existing = snap.exists ? (snap.data() as Record<string, unknown>) : null;
+    const existing =
+      snap && snap.exists ? (snap.data() as Record<string, unknown>) : null;
 
     await ref.set(
       {
         ...parsed.data,
-        userId: user.uid,
+        userId: user?.uid || "public",
         status: (existing?.status as string | undefined) || "pending",
         createdAt: (existing?.createdAt as string | undefined) || now,
         updatedAt: now,
       },
-      { merge: true },
+      user ? { merge: true } : { merge: false },
     );
 
-    return Response.json({ ok: true }, { status: 200 });
+    return Response.json({ ok: true, id: ref.id }, { status: 200 });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";
     return Response.json(

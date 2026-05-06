@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { MobileNav } from "@/components/MobileNav";
+import { NavTabsClient } from "@/components/NavTabsClient";
 
 const navItems: Array<{ href: string; label: string }> = [
   { href: "/", label: "Home" },
@@ -18,17 +19,7 @@ export function NavBar() {
         <div className="flex items-center justify-between gap-3 py-2">
           <Logo />
 
-          <nav className="hidden items-center gap-7 md:flex">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-black/70 transition hover:text-black"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <NavTabsClient items={navItems} />
 
           <div className="flex items-center gap-2">
             <MobileNav />

@@ -30,16 +30,19 @@ export default function AboutPage() {
               Who We Are
             </p>
             <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-6xl">
-              Resilient Markets Africa exists to bridge the gap between opportunity and enterprise readiness.
+              Bridging opportunity and enterprise readiness across Africa.
             </h1>
+            <p className="mt-6 text-lg leading-8 text-black/70 sm:text-xl">
+              Resilient Markets Africa (RMA) helps SMEs become compliant, finance‑ready, and buyer‑ready—so they can participate competitively in major supply chains.
+            </p>
             <p className="mt-6 text-base leading-7 rma-muted sm:text-lg">
-              Across Africa, many SMEs have the ambition, local knowledge, and commercial potential to supply major industries, but they often lack access to structured support, finance readiness, compliance systems, market information, and buyer linkages.
+              Across the continent, many SMEs have the ambition, local knowledge, and commercial potential to supply large industries—yet often lack structured support, finance readiness, compliance systems, market information, and buyer linkages.
             </p>
             <p className="mt-4 text-base leading-7 rma-muted sm:text-lg">
-              RMA addresses this gap by designing and implementing practical enterprise development, supplier development, and market access programmes that prepare SMEs to compete, grow, and integrate into high-value supply chains.
+              RMA addresses this gap by designing and implementing practical enterprise development, supplier development, and market access programmes that prepare SMEs to compete, grow, and integrate into high‑value supply chains.
             </p>
-            <p className="mt-4 text-sm leading-6 rma-muted">
-              Our work is especially focused on sectors where local enterprise participation can unlock meaningful economic transformation, including mining, manufacturing, logistics, construction, energy, agro-processing, and digital services.
+            <p className="mt-4 text-sm leading-6 rma-muted sm:text-base">
+              Our work focuses on sectors where local enterprise participation can unlock meaningful economic transformation, including mining, manufacturing, logistics, construction, energy, agro‑processing, and digital services.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-2 text-xs font-semibold">

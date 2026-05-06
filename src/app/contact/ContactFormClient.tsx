@@ -7,6 +7,7 @@ const enquiryTypes = [
   "SME registration support",
   "Finance partner enquiry",
   "Supplier development programme",
+  "Trainer/mentor application",
   "General enquiry",
 ] as const;
 

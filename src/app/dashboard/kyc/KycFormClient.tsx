@@ -21,7 +21,13 @@ function Field({
   );
 }
 
-export function KycFormClient({ initial }: { initial: Partial<KycInput> }) {
+export function KycFormClient({
+  initial,
+  redirectTo,
+}: {
+  initial: Partial<KycInput>;
+  redirectTo?: string;
+}) {
   const [form, setForm] = useState({
     companyName: initial.companyName ?? "",
     pacraRegistrationNumber: initial.pacraRegistrationNumber ?? "",
@@ -125,9 +131,11 @@ export function KycFormClient({ initial }: { initial: Partial<KycInput> }) {
       }
 
       setStatus({ state: "success" });
-      window.setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 500);
+      if (redirectTo) {
+        window.setTimeout(() => {
+          window.location.href = redirectTo;
+        }, 500);
+      }
     } catch (err) {
       setStatus({
         state: "error",
@@ -477,10 +485,6 @@ export function KycFormClient({ initial }: { initial: Partial<KycInput> }) {
       </label>
 
       <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs leading-5 text-black/45">
-          After submission, your KYC status will show as <span className="font-medium">pending</span>{" "}
-          until RMA verifies your profile.
-        </p>
         <button
           className="rma-btn rma-btn-primary disabled:opacity-50"
           type="submit"

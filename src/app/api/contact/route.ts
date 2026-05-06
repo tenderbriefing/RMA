@@ -12,6 +12,7 @@ const ContactSchema = z.object({
     "SME registration support",
     "Finance partner enquiry",
     "Supplier development programme",
+    "Trainer/mentor application",
     "General enquiry",
   ]),
   message: z.string().min(1, "Message is required"),

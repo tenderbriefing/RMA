@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Default avatar placeholder">
+  <defs>
+    <radialGradient id="bg" cx="35%" cy="25%" r="75%">
+      <stop offset="0%" stop-color="#EEF7F1"/>
+      <stop offset="60%" stop-color="#F3F6FF"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="rgba(0,0,0,0.10)"/>
+    </filter>
+  </defs>
+
+  <!-- soft background -->
+  <rect x="0" y="0" width="512" height="512" rx="96" fill="url(#bg)"/>
+
+  <!-- minimalist avatar circle -->
+  <g filter="url(#shadow)">
+    <circle cx="256" cy="256" r="190" fill="#E5E7EB" />
+    <circle cx="256" cy="256" r="190" fill="none" stroke="rgba(0,0,0,0.06)" />
+  </g>
+
+  <!-- Facebook-style silhouette -->
+  <g fill="#9CA3AF">
+    <!-- head -->
+    <circle cx="256" cy="220" r="64" />
+    <!-- shoulders / bust -->
+    <path d="M128 420c10-74 70-120 128-120s118 46 128 120H128z" />
+  </g>
+
+  <!-- subtle Zambia stripe accent (tiny, tasteful) -->
+  <g opacity="0.7">
+    <rect x="156" y="108" width="86" height="10" rx="5" fill="#1F6A3A"/>
+    <rect x="246" y="108" width="34" height="10" rx="5" fill="#D32F2F"/>
+    <rect x="284" y="108" width="34" height="10" rx="5" fill="#111827"/>
+    <rect x="322" y="108" width="34" height="10" rx="5" fill="#F0742B"/>
+  </g>
+</svg>

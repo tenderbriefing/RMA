@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const links: Array<{ href: string; label: string }> = [
@@ -14,6 +15,7 @@ const links: Array<{ href: string; label: string }> = [
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!open) return;
@@ -67,7 +69,13 @@ export function MobileNav() {
                     <Link
                       href={l.href}
                       onClick={() => setOpen(false)}
-                      className="block rounded-2xl px-4 py-3 text-sm font-medium text-black/80 hover:bg-black/[.03]"
+                      aria-current={pathname === l.href ? "page" : undefined}
+                      className={[
+                        "block rounded-2xl px-4 py-3 text-sm font-semibold transition",
+                        pathname === l.href
+                          ? "bg-[color:var(--rma-green)]/10 text-[var(--rma-ink)]"
+                          : "text-black/80 hover:bg-black/[.03]",
+                      ].join(" ")}
                     >
                       {l.label}
                     </Link>

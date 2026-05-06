@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Section } from "@/components/Section";
 import { EcosystemCircle } from "@/components/EcosystemCircle";
 import { ServicesAccordionClient } from "@/app/services/ServicesAccordionClient";
 
@@ -10,12 +9,22 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <main>
-      <Section
-        eyebrow="Services"
-        title="Practical enterprise development and supplier ecosystem services."
-        description="Resilient Markets Africa provides practical enterprise development, supplier development, access-to-finance, and market linkage services designed to help African SMEs become compliant, bankable, competitive, and connected to real commercial opportunities."
-      >
-        <div className="space-y-8">
+      <div className="rma-container-wide py-12 sm:py-14">
+        <div className="max-w-4xl">
+          <p className="text-xs font-semibold uppercase tracking-wider rma-muted">
+            Services
+          </p>
+          <h1 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--rma-ink)] sm:text-5xl">
+            Enterprise development and supplier ecosystem services
+          </h1>
+          <p className="mt-4 text-base leading-7 rma-muted">
+            Resilient Markets Africa provides practical enterprise development, supplier development,
+            access-to-finance, and market linkage services designed to help African SMEs become
+            compliant, bankable, competitive, and connected to real commercial opportunities.
+          </p>
+        </div>
+
+        <div className="mt-10 space-y-8">
           <div className="rma-card p-6 sm:p-8">
             <p className="text-sm leading-6 rma-muted">
               We work with SMEs, mining houses, corporates, banks, development finance institutions,
@@ -65,7 +74,7 @@ export default function ServicesPage() {
             </div>
           </div>
         </div>
-      </Section>
+      </div>
     </main>
   );
 }
