@@ -31,23 +31,6 @@ export default function ContactPage() {
       </div>
 
       <div className="rma-container-wide py-10 sm:py-14">
-        <div className="grid gap-4 sm:grid-cols-3">
-          {[
-            { t: "Email", v: "info@rma.africa", b: "Partnerships, SME support, and general enquiries." },
-            { t: "Office", v: "Kabulonga, Lusaka", b: "Unit 3 Katete Flats, Off Roan Road." },
-            { t: "Focus", v: "Mining supplier development", b: "Local-content and supplier pipeline outcomes." },
-          ].map((x) => (
-            <div key={x.t} className="overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm">
-              <div className="pointer-events-none h-1 w-full bg-[linear-gradient(90deg,var(--rma-green),var(--rma-blue),var(--rma-orange))] opacity-70" />
-              <div className="p-5">
-                <p className="text-xs font-semibold uppercase tracking-wider rma-muted">{x.t}</p>
-                <p className="mt-2 text-sm font-semibold text-[var(--rma-ink)]">{x.v}</p>
-                <p className="mt-1 text-sm leading-6 rma-muted">{x.b}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
         <div className="mt-10 grid gap-6 lg:grid-cols-12">
           <div className="lg:col-span-7">
             <ContactFormClient />
