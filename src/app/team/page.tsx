@@ -32,7 +32,7 @@ const team = [
   {
     name: "Tonny Simbaya",
     role: "Procurement Lead",
-    photoSrc: "/team/tonny-simbaya.svg",
+    photoSrc: "/team/tonny-simbaya.png",
     linkedinUrl: "https://linkedin.com/in/tonny-j-simbaya-9594729",
     credentials: [
       "MSc, Supply Chain",
