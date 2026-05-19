@@ -43,16 +43,20 @@ function TeamCard({ m }: { m: TeamMember }) {
 
       <div className="relative p-6">
         <div className="flex items-start gap-4">
-          <div className="relative h-20 w-20 overflow-hidden rounded-2xl border border-black/10 bg-black/[.03]">
-            {imgOk ? (
-              <img
-                src={m.photoSrc}
-                alt={m.name}
-                className="h-full w-full object-cover"
-                onLoad={() => setImgOk(true)}
-                onError={() => setImgOk(false)}
-              />
-            ) : null}
+          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border border-black/10 bg-black/[.03]">
+            <img
+              src={m.photoSrc}
+              alt={m.name}
+              width={80}
+              height={80}
+              loading="eager"
+              decoding="async"
+              className={[
+                "h-full w-full object-cover",
+                imgOk ? "opacity-100" : "opacity-0",
+              ].join(" ")}
+              onError={() => setImgOk(false)}
+            />
             {!imgOk ? (
               <div
                 className="absolute inset-0 flex items-center justify-center text-base font-semibold text-black/60"
